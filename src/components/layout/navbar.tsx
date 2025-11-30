@@ -165,10 +165,15 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <AddToCalendarDropdown />
           <Link
-            href="mailto:info-mitbitcoinexpo@googlegroups.com"
-            className="text-sm px-4 py-2 rounded-lg bg-accent text-accent-foreground font-medium hover:bg-accent/90 transition-colors"
+            href="https://www.mitbitcoinexpo.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm px-4 py-2 rounded-lg bg-accent text-accent-foreground font-medium hover:bg-accent/90 transition-colors flex items-center gap-2"
           >
-            Contact
+            View 2025 Expo
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
           </Link>
         </div>
       </nav>
