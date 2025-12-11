@@ -165,7 +165,7 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           <AddToCalendarDropdown />
           <Link
-            href="https://www.mitbitcoinexpo.org/"
+            href="https://mitbtcexpo.org/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm px-4 py-2 rounded-lg bg-accent text-accent-foreground font-medium hover:bg-accent/90 transition-colors flex items-center gap-2"
