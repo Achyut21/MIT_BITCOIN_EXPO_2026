@@ -149,7 +149,7 @@ export function Navbar() {
         <Link href="/" className="flex items-center gap-3 group">
           <div className="relative w-10 h-10 rounded-xl overflow-hidden">
             <Image
-              src="/logo.webp"
+              src="/logo_2.webp"
               alt="MIT Bitcoin Club"
               fill
               className="object-contain"

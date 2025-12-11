@@ -139,7 +139,7 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <div className="relative w-8 h-8 rounded-lg overflow-hidden">
               <Image
-                src="/logo.webp"
+                src="/logo_2.webp"
                 alt="MIT Bitcoin Club"
                 fill
                 className="object-contain"
