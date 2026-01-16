@@ -51,7 +51,7 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/company/mit-bitcoin-club/",
+    href: "https://www.linkedin.com/company/mitbitcoinclub/?viewAsMember=true",
     icon: LinkedInIcon,
   },
   {
