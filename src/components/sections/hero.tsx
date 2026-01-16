@@ -48,10 +48,10 @@ export function Hero() {
           <span className="text-accent">April 11-12, 2026</span>
         </motion.p>
 
-        {/* Mobile CTA Buttons */}
+        {/* CTA Buttons */}
         <motion.div 
           variants={itemVariants}
-          className="mt-6 flex flex-row gap-3 justify-center md:hidden"
+          className="mt-6 flex flex-row gap-3 justify-center"
         >
           <Link
             href="https://mitbtcexpo.org/"

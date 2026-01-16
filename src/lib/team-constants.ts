@@ -21,6 +21,11 @@ const TEAM_IMAGES = {
   achyut: "/team/achyut-katiyar.webp",
 };
 
+// Linked list of team categories and their members
+const LinkedInLink = {
+  achyut: "https://www.linkedin.com/in/achyutkatiyar2103/"
+}
+
 export const teamCategories: TeamCategory[] = [
   {
     name: "Board",
@@ -117,7 +122,7 @@ export const teamCategories: TeamCategory[] = [
         team: "Hackathon",
         role: "Co-Chair",
         image: TEAM_IMAGES.achyut,
-        linkedin: "#",
+        linkedin: LinkedInLink.achyut,
       },
     ],
   },

@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         hostname: "www.mitbtcexpo.org",
         pathname: "/assets/img/team/**",
       },
+      {
+        protocol: "https",
+        hostname: "www.mitbtcexpo.org",
+        pathname: "/assets/img/speakers/**",
+      },
     ],
   },
 };
