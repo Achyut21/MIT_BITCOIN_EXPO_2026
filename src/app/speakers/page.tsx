@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "motion/react";
+import Image from "next/image";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Background } from "@/components/animations/background";
@@ -24,6 +25,15 @@ const itemVariants: Variants = {
   },
 };
 
+const mascotVariants: Variants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: { 
+    opacity: 1, 
+    scale: 1,
+    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.4 } 
+  },
+};
+
 export default function SpeakersPage() {
   const hasCurrentSpeakers = currentSpeakers.length > 0;
 
@@ -34,6 +44,33 @@ export default function SpeakersPage() {
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <Background />
+
+        {/* Mascot - behind content */}
+        <motion.div
+          variants={mascotVariants}
+          initial="hidden"
+          animate="visible"
+          className="absolute inset-0 flex items-center justify-center z-[1] -translate-y-12"
+        >
+          {/* Glow effect behind mascot */}
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-64 h-64 lg:w-96 lg:h-96 blur-3xl bg-accent/30 rounded-full" />
+          </div>
+          
+          <motion.div
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <Image
+              src="/greenLogo.webp"
+              alt="Bitcoin Expo Mascot"
+              width={400}
+              height={500}
+              className="w-auto h-[50vh] max-h-[400px] lg:h-[55vh] lg:max-h-[500px] object-contain opacity-20"
+              priority
+            />
+          </motion.div>
+        </motion.div>
 
         <motion.div
           variants={containerVariants}
@@ -50,7 +87,7 @@ export default function SpeakersPage() {
 
           <motion.p
             variants={itemVariants}
-            className="mt-6 text-xl sm:text-2xl md:text-3xl font-medium text-muted"
+            className="mt-3 text-xl sm:text-2xl md:text-3xl font-medium text-muted"
           >
             Industry Leaders{" "}
             <span className="text-muted/40">|</span>{" "}
