@@ -19,11 +19,13 @@ const TEAM_IMAGES = {
   hash: "https://www.mitbtcexpo.org/assets/img/team/Hash.jpeg",
   thomaz: "https://www.mitbtcexpo.org/assets/img/team/Luiz.jpeg",
   achyut: "/team/achyut-katiyar.webp",
+  arul: "/team/Arul.webp"
 };
 
 // Linked list of team categories and their members
 const LinkedInLink = {
-  achyut: "https://www.linkedin.com/in/achyutkatiyar2103/"
+  achyut: "https://www.linkedin.com/in/achyutkatiyar2103/",
+  arul: "https://linkedin.com/in/arulagarwal"
 }
 
 export const teamCategories: TeamCategory[] = [
@@ -213,8 +215,8 @@ export const teamCategories: TeamCategory[] = [
         name: "Arul",
         team: "Sponsorship",
         role: "Co-Chair",
-        image: "",
-        linkedin: "#",
+        image: TEAM_IMAGES.arul,
+        linkedin: LinkedInLink.arul,
       },
     ],
   },
