@@ -184,8 +184,8 @@ function HeroSection() {
             className="bg-orange-500 hover:bg-orange-600 text-white text-sm sm:text-base px-4 sm:px-6"
             asChild
           >
-            <Link href="https://devpost.com" target="_blank">
-              Register on Devpost
+            <Link href="https://forms.gle/aXty5Gdxr5BCRaxKA" target="_blank">
+              Register Now
               <ExternalLink className="ml-2 h-4 w-4" />
             </Link>
           </Button>
@@ -949,7 +949,7 @@ function CTASection() {
               className="bg-orange-500 hover:bg-orange-600 text-white"
               asChild
             >
-              <Link href="https://devpost.com" target="_blank">
+              <Link href="https://forms.gle/aXty5Gdxr5BCRaxKA" target="_blank">
                 Register Now
                 <ExternalLink className="ml-2 h-4 w-4" />
               </Link>
