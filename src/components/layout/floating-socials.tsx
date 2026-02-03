@@ -67,10 +67,7 @@ export function FloatingSocials() {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay: 1 }}
-      className={cn(
-        "fixed right-4 top-1/2 -translate-y-1/2 z-30",
-        "flex flex-col gap-2"
-      )}
+      className={cn("fixed top-1/2 right-4 z-30 -translate-y-1/2", "flex flex-col gap-2")}
     >
       {socialLinks.map((social, index) => (
         <motion.div
@@ -86,12 +83,12 @@ export function FloatingSocials() {
             aria-label={social.name}
             className={cn(
               "flex items-center justify-center",
-              "w-10 h-10 rounded-full",
-              "bg-surface border border-border",
+              "h-10 w-10 rounded-full",
+              "bg-surface border-border border",
               "text-muted",
               "transition-all duration-300",
-              "hover:scale-110 hover:border-accent hover:text-accent",
-              "hover:shadow-lg hover:shadow-accent/10"
+              "hover:border-accent hover:text-accent hover:scale-110",
+              "hover:shadow-accent/10 hover:shadow-lg"
             )}
           >
             <social.icon />

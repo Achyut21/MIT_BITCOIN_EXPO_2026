@@ -23,47 +23,42 @@ interface TbaHeroProps {
 
 export function TbaHero({ title, accentWord }: TbaHeroProps) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       <Background />
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-4xl mx-auto px-6 text-center"
+        className="relative z-10 mx-auto max-w-4xl px-6 text-center"
       >
-        <motion.h1 
+        <motion.h1
           variants={itemVariants}
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-foreground tracking-tight"
+          className="text-foreground text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
         >
           {accentWord ? (
             <>
-              {title}{" "}
-              <span className="text-accent">{accentWord}</span>
+              {title} <span className="text-accent">{accentWord}</span>
             </>
           ) : (
             <span className="text-accent">{title}</span>
           )}
         </motion.h1>
 
-        <motion.p 
+        <motion.p
           variants={itemVariants}
-          className="mt-6 text-xl sm:text-2xl md:text-3xl font-medium text-muted"
+          className="text-muted mt-6 text-xl font-medium sm:text-2xl md:text-3xl"
         >
-          Coming Soon{" "}
-          <span className="text-muted/40">|</span>{" "}
+          Coming Soon <span className="text-muted/40">|</span>{" "}
           <span className="text-accent">April 11-12, 2026</span>
         </motion.p>
 
-        <motion.p 
-          variants={itemVariants}
-          className="mt-6 text-sm sm:text-base text-muted/60"
-        >
+        <motion.p variants={itemVariants} className="text-muted/60 mt-6 text-sm sm:text-base">
           To be announced
         </motion.p>
       </motion.div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent z-10" />
+      <div className="from-background absolute right-0 bottom-0 left-0 z-10 h-40 bg-gradient-to-t to-transparent" />
     </section>
   );
 }

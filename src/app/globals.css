@@ -34,26 +34,26 @@
 
 :root {
   --radius: 0.625rem;
-  --background: #0C0A09;
-  --foreground: #FAFAF9;
-  --surface: #1C1917;
+  --background: #0c0a09;
+  --foreground: #fafaf9;
+  --surface: #1c1917;
   --border: #292524;
-  --muted: #78716C;
-  --muted-foreground: #78716C;
-  --accent: #C0FF70;
-  --accent-alt: #3F0100;
-  --accent-foreground: #0C0A09;
-  --primary: #FAFAF9;
-  --primary-foreground: #0C0A09;
-  --secondary: #1C1917;
-  --secondary-foreground: #FAFAF9;
-  --card: #1C1917;
-  --card-foreground: #FAFAF9;
-  --popover: #1C1917;
-  --popover-foreground: #FAFAF9;
+  --muted: #78716c;
+  --muted-foreground: #78716c;
+  --accent: #c0ff70;
+  --accent-alt: #3f0100;
+  --accent-foreground: #0c0a09;
+  --primary: #fafaf9;
+  --primary-foreground: #0c0a09;
+  --secondary: #1c1917;
+  --secondary-foreground: #fafaf9;
+  --card: #1c1917;
+  --card-foreground: #fafaf9;
+  --popover: #1c1917;
+  --popover-foreground: #fafaf9;
   --destructive: #ef4444;
   --input: #292524;
-  --ring: #C0FF70;
+  --ring: #c0ff70;
 }
 
 @layer base {
@@ -66,13 +66,13 @@
 }
 
 ::selection {
-  background-color: #605DBA;
-  color: #FAFAF9;
+  background-color: #605dba;
+  color: #fafaf9;
 }
 
 ::-moz-selection {
-  background-color: #605DBA;
-  color: #FAFAF9;
+  background-color: #605dba;
+  color: #fafaf9;
 }
 
 /* Custom scrollbar */

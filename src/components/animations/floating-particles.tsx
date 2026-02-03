@@ -20,7 +20,8 @@ function generateParticles() {
       size: Math.round((seededRandom(seed * 3) * 4 + 1.5) * 100) / 100,
       duration: Math.round((seededRandom(seed * 4) * 25 + 20) * 100) / 100,
       delay: Math.round(seededRandom(seed * 5) * 800) / 100,
-      color: seededRandom(seed * 6) > 0.6 ? "rgba(192, 255, 112, 0.4)" : "rgba(250, 250, 249, 0.25)",
+      color:
+        seededRandom(seed * 6) > 0.6 ? "rgba(192, 255, 112, 0.4)" : "rgba(250, 250, 249, 0.25)",
     };
   });
 }
@@ -44,7 +45,7 @@ export function FloatingParticles() {
   }
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-70">
+    <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-70">
       {particles.map((particle) => (
         <motion.div
           key={particle.id}

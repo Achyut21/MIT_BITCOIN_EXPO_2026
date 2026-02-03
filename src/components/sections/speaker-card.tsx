@@ -69,9 +69,9 @@ export function SpeakerCard({ speaker, index = 0 }: SpeakerCardProps) {
       <div
         className={cn(
           "relative overflow-hidden rounded-xl",
-          "bg-surface border border-border",
+          "bg-surface border-border border",
           "hover:border-accent/50 transition-all duration-300",
-          "hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/5"
+          "hover:shadow-accent/5 hover:-translate-y-1 hover:shadow-lg"
         )}
       >
         {/* Square Image or Initials Fallback */}
@@ -79,14 +79,12 @@ export function SpeakerCard({ speaker, index = 0 }: SpeakerCardProps) {
           {imageError || !hasImage ? (
             <div
               className={cn(
-                "w-full h-full flex items-center justify-center",
+                "flex h-full w-full items-center justify-center",
                 "bg-surface",
                 bgColor
               )}
             >
-              <span className="text-4xl sm:text-5xl font-bold text-foreground/80">
-                {initials}
-              </span>
+              <span className="text-foreground/80 text-4xl font-bold sm:text-5xl">{initials}</span>
             </div>
           ) : (
             <Image
@@ -100,20 +98,20 @@ export function SpeakerCard({ speaker, index = 0 }: SpeakerCardProps) {
               onError={() => setImageError(true)}
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="from-surface/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
 
         {/* Info Section */}
         <div className="p-4">
           <h3
             className={cn(
-              "font-semibold text-foreground truncate",
+              "text-foreground truncate font-semibold",
               "group-hover:text-accent transition-colors duration-300"
             )}
           >
             {speaker.name}
           </h3>
-          <p className="text-sm text-muted line-clamp-2">{speaker.title}</p>
+          <p className="text-muted line-clamp-2 text-sm">{speaker.title}</p>
         </div>
       </div>
     </motion.div>

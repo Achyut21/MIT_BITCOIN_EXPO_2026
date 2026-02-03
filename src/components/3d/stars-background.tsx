@@ -16,7 +16,7 @@ interface StarsProps {
 function Stars({ count = 5000, radius = 1.5, color = "#FAFAF9", size = 0.002 }: StarsProps) {
   const ref = useRef<ThreePoints>(null);
   const { pointer } = useThree();
-  
+
   const [sphere] = useMemo(() => {
     const positions = random.inSphere(new Float32Array(count * 3), { radius }) as Float32Array;
     return [positions];
@@ -26,7 +26,7 @@ function Stars({ count = 5000, radius = 1.5, color = "#FAFAF9", size = 0.002 }: 
     if (ref.current) {
       ref.current.rotation.x -= delta / 10;
       ref.current.rotation.y -= delta / 15;
-      
+
       // React to mouse movement
       ref.current.rotation.x += pointer.x * 0.001;
       ref.current.rotation.y += pointer.y * 0.001;
@@ -51,12 +51,12 @@ function Stars({ count = 5000, radius = 1.5, color = "#FAFAF9", size = 0.002 }: 
 export function StarsBackground() {
   return (
     <div className="absolute inset-0 h-full w-full">
-      <Canvas 
+      <Canvas
         camera={{ position: [0, 0, 1] }}
-        gl={{ 
+        gl={{
           antialias: true,
           preserveDrawingBuffer: true,
-          powerPreference: "high-performance"
+          powerPreference: "high-performance",
         }}
         dpr={[1, 2]}
       >

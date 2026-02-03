@@ -185,8 +185,7 @@ export const faqItems: FAQItem[] = [
   },
   {
     question: "Is there an age requirement?",
-    answer:
-      "Yes, participants must be 18 years of age or older at the time of the event.",
+    answer: "Yes, participants must be 18 years of age or older at the time of the event.",
   },
 ];
 

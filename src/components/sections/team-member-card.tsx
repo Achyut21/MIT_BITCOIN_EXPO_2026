@@ -61,12 +61,12 @@ function getColorFromName(name: string): string {
     "bg-fuchsia-900/50",
     "bg-pink-900/50",
   ];
-  
+
   let hash = 0;
   for (let i = 0; i < name.length; i++) {
     hash = name.charCodeAt(i) + ((hash << 5) - hash);
   }
-  
+
   return colors[Math.abs(hash) % colors.length];
 }
 
@@ -74,7 +74,7 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
   const [imageError, setImageError] = useState(false);
   const initials = getInitials(member.name);
   const bgColor = getColorFromName(member.name);
-  
+
   // Check if image exists
   const hasImage = member.image && member.image.length > 0;
 
@@ -93,9 +93,9 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
       <div
         className={cn(
           "relative overflow-hidden rounded-xl",
-          "bg-surface border border-border",
+          "bg-surface border-border border",
           "hover:border-accent/50 transition-all duration-300",
-          "hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/5"
+          "hover:shadow-accent/5 hover:-translate-y-1 hover:shadow-lg"
         )}
       >
         {/* Square Image or Initials Fallback */}
@@ -104,14 +104,12 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
             // Initials fallback
             <div
               className={cn(
-                "w-full h-full flex items-center justify-center",
+                "flex h-full w-full items-center justify-center",
                 "bg-surface",
                 bgColor
               )}
             >
-              <span className="text-4xl sm:text-5xl font-bold text-foreground/80">
-                {initials}
-              </span>
+              <span className="text-foreground/80 text-4xl font-bold sm:text-5xl">{initials}</span>
             </div>
           ) : (
             <Image
@@ -126,22 +124,22 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
             />
           )}
           {/* Subtle gradient overlay at bottom */}
-          <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="from-surface/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         </div>
 
         {/* Info Section */}
-        <div className="p-4 flex items-center justify-between gap-3">
+        <div className="flex items-center justify-between gap-3 p-4">
           {/* Name and Role - Left side */}
           <div className="min-w-0 flex-1">
             <h3
               className={cn(
-                "font-semibold text-foreground truncate",
+                "text-foreground truncate font-semibold",
                 "group-hover:text-accent transition-colors duration-300"
               )}
             >
               {member.name}
             </h3>
-            <p className="text-sm text-muted truncate">{member.role}</p>
+            <p className="text-muted truncate text-sm">{member.role}</p>
           </div>
 
           {/* LinkedIn - Right side, vertically centered with name */}
@@ -151,8 +149,8 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "shrink-0 p-2 rounded-full",
-                "border border-border text-muted",
+                "shrink-0 rounded-full p-2",
+                "border-border text-muted border",
                 "hover:border-accent hover:bg-accent hover:text-accent-foreground",
                 "transition-all duration-300"
               )}

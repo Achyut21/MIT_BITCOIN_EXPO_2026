@@ -11,7 +11,7 @@ interface TimeUnit {
 function TimeBlock({ value, label }: TimeUnit) {
   return (
     <div className="flex flex-col items-center">
-      <div className="relative w-20 sm:w-24 md:w-28 h-24 sm:h-28 md:h-32 bg-surface rounded-xl border border-border overflow-hidden">
+      <div className="bg-surface border-border relative h-24 w-20 overflow-hidden rounded-xl border sm:h-28 sm:w-24 md:h-32 md:w-28">
         <AnimatePresence mode="popLayout">
           <motion.div
             key={value}
@@ -21,16 +21,16 @@ function TimeBlock({ value, label }: TimeUnit) {
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="absolute inset-0 flex items-center justify-center"
           >
-            <span className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tabular-nums">
+            <span className="text-foreground text-4xl font-bold tabular-nums sm:text-5xl md:text-6xl">
               {String(value).padStart(2, "0")}
             </span>
           </motion.div>
         </AnimatePresence>
-        
+
         {/* Subtle line in middle */}
-        <div className="absolute left-0 right-0 top-1/2 h-px bg-border/50" />
+        <div className="bg-border/50 absolute top-1/2 right-0 left-0 h-px" />
       </div>
-      <span className="mt-3 text-xs sm:text-sm text-muted uppercase tracking-widest font-medium">
+      <span className="text-muted mt-3 text-xs font-medium tracking-widest uppercase sm:text-sm">
         {label}
       </span>
     </div>
@@ -39,9 +39,9 @@ function TimeBlock({ value, label }: TimeUnit) {
 
 function Colon() {
   return (
-    <div className="flex flex-col items-center justify-center h-24 sm:h-28 md:h-32 px-1 sm:px-2">
-      <div className="w-2 h-2 rounded-full bg-accent/60 mb-3" />
-      <div className="w-2 h-2 rounded-full bg-accent/60" />
+    <div className="flex h-24 flex-col items-center justify-center px-1 sm:h-28 sm:px-2 md:h-32">
+      <div className="bg-accent/60 mb-3 h-2 w-2 rounded-full" />
+      <div className="bg-accent/60 h-2 w-2 rounded-full" />
     </div>
   );
 }
@@ -88,11 +88,10 @@ export function Countdown() {
 
   if (!isClient) {
     return (
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-2">
-            Countdown to{" "}
-            <span className="text-accent">Expo 2026</span>
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-foreground mb-2 text-2xl font-semibold sm:text-3xl">
+            Countdown to <span className="text-accent">Expo 2026</span>
           </h2>
           <p className="text-muted mb-10">April 11, 2026 • 9:00 AM ET</p>
           <div className="flex items-start justify-center gap-1 sm:gap-2 md:gap-4">
@@ -100,8 +99,8 @@ export function Countdown() {
               <div key={label} className="flex items-start">
                 {i > 0 && <Colon />}
                 <div className="flex flex-col items-center">
-                  <div className="w-20 sm:w-24 md:w-28 h-24 sm:h-28 md:h-32 bg-surface rounded-xl border border-border animate-pulse" />
-                  <span className="mt-3 text-xs sm:text-sm text-muted uppercase tracking-widest font-medium">
+                  <div className="bg-surface border-border h-24 w-20 animate-pulse rounded-xl border sm:h-28 sm:w-24 md:h-32 md:w-28" />
+                  <span className="text-muted mt-3 text-xs font-medium tracking-widest uppercase sm:text-sm">
                     {label}
                   </span>
                 </div>
@@ -114,17 +113,16 @@ export function Countdown() {
   }
 
   return (
-    <section className="py-20 px-6">
+    <section className="px-6 py-20">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
-        className="max-w-4xl mx-auto text-center"
+        className="mx-auto max-w-4xl text-center"
       >
-        <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-2">
-          Countdown to{" "}
-          <span className="text-accent">Expo 2026</span>
+        <h2 className="text-foreground mb-2 text-2xl font-semibold sm:text-3xl">
+          Countdown to <span className="text-accent">Expo 2026</span>
         </h2>
         <p className="text-muted mb-10">April 11, 2026 • 9:00 AM ET</p>
 

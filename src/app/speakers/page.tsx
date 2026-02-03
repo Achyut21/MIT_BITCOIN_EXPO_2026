@@ -27,10 +27,10 @@ const itemVariants: Variants = {
 
 const mascotVariants: Variants = {
   hidden: { opacity: 0, scale: 0.9 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     scale: 1,
-    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.4 } 
+    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.4 },
   },
 };
 
@@ -42,7 +42,7 @@ export default function SpeakersPage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden">
         <Background />
 
         {/* Mascot - behind content */}
@@ -50,13 +50,13 @@ export default function SpeakersPage() {
           variants={mascotVariants}
           initial="hidden"
           animate="visible"
-          className="absolute inset-0 flex items-center justify-center z-[1] -translate-y-12"
+          className="absolute inset-0 z-[1] flex -translate-y-12 items-center justify-center"
         >
           {/* Glow effect behind mascot */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-64 h-64 lg:w-96 lg:h-96 blur-3xl bg-accent/30 rounded-full" />
+            <div className="bg-accent/30 h-64 w-64 rounded-full blur-3xl lg:h-96 lg:w-96" />
           </div>
-          
+
           <motion.div
             animate={{ y: [0, -12, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -66,7 +66,7 @@ export default function SpeakersPage() {
               alt="Bitcoin Expo Mascot"
               width={400}
               height={500}
-              className="w-auto h-[50vh] max-h-[400px] lg:h-[55vh] lg:max-h-[500px] object-contain opacity-20"
+              className="h-[50vh] max-h-[400px] w-auto object-contain opacity-20 lg:h-[55vh] lg:max-h-[500px]"
               priority
             />
           </motion.div>
@@ -76,31 +76,30 @@ export default function SpeakersPage() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative z-10 max-w-4xl mx-auto px-6 text-center"
+          className="relative z-10 mx-auto max-w-4xl px-6 text-center"
         >
           <motion.h1
             variants={itemVariants}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight"
+            className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
           >
             <span className="text-accent">SPEAKERS</span>
           </motion.h1>
 
           <motion.p
             variants={itemVariants}
-            className="mt-3 text-xl sm:text-2xl md:text-3xl font-medium text-muted"
+            className="text-muted mt-3 text-xl font-medium sm:text-2xl md:text-3xl"
           >
-            Industry Leaders{" "}
-            <span className="text-muted/40">|</span>{" "}
+            Industry Leaders <span className="text-muted/40">|</span>{" "}
             <span className="text-accent">MIT Bitcoin Expo 2026</span>
           </motion.p>
         </motion.div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent z-10" />
+        <div className="from-background absolute right-0 bottom-0 left-0 z-10 h-40 bg-gradient-to-t to-transparent" />
       </section>
 
       {/* Current Speakers Section */}
       <section className="relative z-10 pb-16">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -109,20 +108,14 @@ export default function SpeakersPage() {
             className="mb-16"
           >
             <div className="mb-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
-                2026 Speakers
-              </h2>
-              <div className="mt-2 h-1 w-16 bg-accent rounded-full" />
+              <h2 className="text-foreground text-2xl font-bold sm:text-3xl">2026 Speakers</h2>
+              <div className="bg-accent mt-2 h-1 w-16 rounded-full" />
             </div>
 
             {hasCurrentSpeakers ? (
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
                 {currentSpeakers.map((speaker, index) => (
-                  <SpeakerCard
-                    key={speaker.name}
-                    speaker={speaker}
-                    index={index}
-                  />
+                  <SpeakerCard key={speaker.name} speaker={speaker} index={index} />
                 ))}
               </div>
             ) : (
@@ -130,12 +123,10 @@ export default function SpeakersPage() {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="py-16 text-center border border-border rounded-xl bg-surface/50"
+                className="border-border bg-surface/50 rounded-xl border py-16 text-center"
               >
-                <p className="text-2xl sm:text-3xl font-bold text-muted/60">
-                  Coming Soon
-                </p>
-                <p className="mt-2 text-muted">
+                <p className="text-muted/60 text-2xl font-bold sm:text-3xl">Coming Soon</p>
+                <p className="text-muted mt-2">
                   Speaker announcements for 2026 will be revealed shortly
                 </p>
               </motion.div>
@@ -146,7 +137,7 @@ export default function SpeakersPage() {
 
       {/* Previous Speakers Section */}
       <section className="relative z-10 pb-24">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="mx-auto max-w-6xl px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -154,20 +145,16 @@ export default function SpeakersPage() {
             transition={{ duration: 0.5 }}
           >
             <div className="mb-8">
-              <h2 className="text-2xl sm:text-3xl font-bold text-foreground">
+              <h2 className="text-foreground text-2xl font-bold sm:text-3xl">
                 Previous Year Speakers
               </h2>
-              <p className="mt-1 text-muted">MIT Bitcoin Expo 2025</p>
-              <div className="mt-2 h-1 w-16 bg-accent rounded-full" />
+              <p className="text-muted mt-1">MIT Bitcoin Expo 2025</p>
+              <div className="bg-accent mt-2 h-1 w-16 rounded-full" />
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
               {previousSpeakers.map((speaker, index) => (
-                <SpeakerCard
-                  key={speaker.name}
-                  speaker={speaker}
-                  index={index}
-                />
+                <SpeakerCard key={speaker.name} speaker={speaker} index={index} />
               ))}
             </div>
           </motion.div>

@@ -19,14 +19,14 @@ const TEAM_IMAGES = {
   hash: "https://www.mitbtcexpo.org/assets/img/team/Hash.jpeg",
   thomaz: "https://www.mitbtcexpo.org/assets/img/team/Luiz.jpeg",
   achyut: "/team/achyut-katiyar.webp",
-  arul: "/team/Arul.webp"
+  arul: "/team/Arul.webp",
 };
 
 // Linked list of team categories and their members
 const LinkedInLink = {
   achyut: "https://www.linkedin.com/in/achyutkatiyar2103/",
-  arul: "https://linkedin.com/in/arulagarwal"
-}
+  arul: "https://linkedin.com/in/arulagarwal",
+};
 
 export const teamCategories: TeamCategory[] = [
   {
@@ -223,6 +223,4 @@ export const teamCategories: TeamCategory[] = [
 ];
 
 // Flat list of all team members
-export const allTeamMembers: TeamMember[] = teamCategories.flatMap(
-  (category) => category.members
-);
+export const allTeamMembers: TeamMember[] = teamCategories.flatMap((category) => category.members);
