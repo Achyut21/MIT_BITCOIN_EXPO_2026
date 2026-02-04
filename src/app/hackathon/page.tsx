@@ -36,7 +36,10 @@ import {
   Megaphone,
   Users2,
   Sparkles,
+  TrendingUp,
 } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { useInView } from "motion/react";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -63,6 +66,42 @@ const cardVariants: Variants = {
     transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
   },
 };
+
+function AnimatedCounter({
+  value,
+  suffix = "",
+  duration = 2000,
+}: {
+  value: number;
+  suffix?: string;
+  duration?: number;
+}) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    let start = 0;
+    const end = value;
+    const incrementTime = duration / end;
+    const timer = setInterval(() => {
+      start += 1;
+      setCount(start);
+      if (start >= end) clearInterval(timer);
+    }, incrementTime);
+
+    return () => clearInterval(timer);
+  }, [isInView, value, duration]);
+
+  return (
+    <span ref={ref} className="tabular-nums">
+      {count}
+      {suffix}
+    </span>
+  );
+}
 
 function SectionHeader({
   badge,
@@ -221,6 +260,109 @@ function KeyDetailsSection() {
               <p className="font-semibold">{detail.value}</p>
             </motion.div>
           ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+function ImpactSection() {
+  const stats = [
+    { value: 12, suffix: "+", label: "Years Running", sublabel: "Since 2014" },
+    { value: 100, suffix: "+", label: "Participants", sublabel: "Each Year" },
+    { value: 400, suffix: "+", label: "Expo Attendees", sublabel: "Concurrent Event" },
+    { value: 225, suffix: "K+", label: "Live Viewers", sublabel: "Bitcoin Magazine" },
+  ];
+
+  const innovations = [
+    "Layer 2 Scaling Solutions",
+    "Privacy-Preserving Protocols",
+    "Self-Custody Wallets",
+    "Lightning Network Apps",
+    "Bitcoin-Native DeFi",
+    "Educational Tools",
+  ];
+
+  const alumniDestinations = [
+    "Bitcoin Core development teams",
+    "Leading crypto companies",
+    "Founded blockchain startups",
+  ];
+
+  return (
+    <section className="bg-surface/50 px-6 py-20">
+      <div className="mx-auto max-w-5xl">
+        <SectionHeader
+          badge="Our Impact"
+          title="12 Years of Innovation"
+          description="The premier student-led Bitcoin hackathon since 2014"
+        />
+
+        {/* Stats Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-16 grid grid-cols-2 gap-6 md:grid-cols-4"
+        >
+          {stats.map((stat) => (
+            <motion.div
+              key={stat.label}
+              variants={cardVariants}
+              className="relative rounded-xl border border-orange-500/20 bg-gradient-to-br from-orange-500/10 to-transparent p-6 text-center"
+            >
+              <div className="text-4xl font-bold text-orange-400 md:text-5xl">
+                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
+              </div>
+              <p className="mt-2 font-medium text-foreground">{stat.label}</p>
+              <p className="text-muted text-xs">{stat.sublabel}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Two Column: Innovations + Alumni */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid gap-8 md:grid-cols-2"
+        >
+          {/* Past Innovations */}
+          <motion.div variants={cardVariants} className="bg-background border-border rounded-xl border p-6">
+            <div className="mb-4 flex items-center gap-2">
+              <TrendingUp className="h-5 w-5 text-orange-400" />
+              <h3 className="text-lg font-semibold">Past Innovations</h3>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {innovations.map((item) => (
+                <Badge
+                  key={item}
+                  variant="outline"
+                  className="border-orange-500/30 bg-orange-500/10 text-orange-400"
+                >
+                  {item}
+                </Badge>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Where Alumni Go */}
+          <motion.div variants={cardVariants} className="bg-background border-border rounded-xl border p-6">
+            <div className="mb-4 flex items-center gap-2">
+              <Users2 className="h-5 w-5 text-orange-400" />
+              <h3 className="text-lg font-semibold">Where Alumni Go</h3>
+            </div>
+            <ul className="space-y-3">
+              {alumniDestinations.map((destination) => (
+                <li key={destination} className="text-muted flex items-center gap-2 text-sm">
+                  <CheckCircle2 className="h-4 w-4 flex-shrink-0 text-orange-400" />
+                  {destination}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
         </motion.div>
       </div>
     </section>
@@ -939,6 +1081,7 @@ export default function HackathonPage() {
       <Navbar />
       <HeroSection />
       <KeyDetailsSection />
+      <ImpactSection />
       <AboutSection />
       <GetStartedSection />
       <ScheduleSection />
