@@ -20,12 +20,18 @@ const TEAM_IMAGES = {
   thomaz: "https://www.mitbtcexpo.org/assets/img/team/Luiz.jpeg",
   achyut: "/team/achyut-katiyar.webp",
   arul: "/team/Arul.webp",
+  yi: "/team/yi.webp",
+  rojina: "/team/rojina.webp",
+  carys: "/team/Carys.webp",
 };
 
 // Linked list of team categories and their members
 const LinkedInLink = {
   achyut: "https://www.linkedin.com/in/achyutkatiyar2103/",
   arul: "https://linkedin.com/in/arulagarwal",
+  yi: "https://www.linkedin.com/in/yiliu-mit/",
+  rojina: "https://www.linkedin.com/in/rojina-adhikari-1464b5282/",
+  carys: "https://www.linkedin.com/in/carys-chan-8a2588298/",
 };
 
 export const teamCategories: TeamCategory[] = [
@@ -139,11 +145,11 @@ export const teamCategories: TeamCategory[] = [
         linkedin: "#",
       },
       {
-        name: "Rojina",
+        name: "Rojina Adhikari",
         team: "Logistics",
         role: "Co-Chair (Lead)",
-        image: "",
-        linkedin: "#",
+        image: TEAM_IMAGES.rojina,
+        linkedin: LinkedInLink.rojina,
       },
       {
         name: "Michelle C",
@@ -168,15 +174,15 @@ export const teamCategories: TeamCategory[] = [
         name: "Yi Liu",
         team: "Marketing",
         role: "Co-Chair",
-        image: "",
-        linkedin: "#",
+        image: TEAM_IMAGES.yi,
+        linkedin: LinkedInLink.yi,
       },
       {
         name: "Carys Chan",
         team: "Marketing",
         role: "Co-Chair",
-        image: "",
-        linkedin: "#",
+        image: TEAM_IMAGES.carys,
+        linkedin: LinkedInLink.carys,
       },
       {
         name: "Achyut Katiyar",
