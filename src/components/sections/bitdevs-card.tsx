@@ -5,11 +5,13 @@ import { motion, AnimatePresence } from "motion/react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const BITDEVS_EVENT = {
-  title: "Boston BitDevs at Fidelity",
-  description: "Boston BitDevs meetup at Fidelity — the day before MIT Bitcoin Expo kicks off.",
-  location: "Fidelity, Boston, MA",
-  start: "20260410T180000",
-  end: "20260410T210000",
+  title: "Boston BitDevs: Socratic Seminar 35",
+  description:
+    "Boston BitDevs at Fidelity's 245 Summer Street location. Advance RSVP and valid identification are required.",
+  location: "245 Summer Street, Boston, MA, USA",
+  start: "20260410T183000",
+  end: "20260410T204500",
+  rsvpUrl: "https://evento.so/p/evt_7Xb4jPnRNT1iQzpA",
 };
 
 const ACCENT = "#E8A0B0";
@@ -125,9 +127,71 @@ export function BitDevsCard() {
               </p>
             </div>
 
-            <div className="relative" ref={dropdownRef}>
-              <button
-                onClick={() => setIsOpen(!isOpen)}
+            <div className="flex items-center gap-2">
+              {/* Calendar dropdown */}
+              <div className="relative" ref={dropdownRef}>
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="bg-border/50 hover:text-background flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all hover:bg-[var(--card-accent)]"
+                >
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                </button>
+                <AnimatePresence>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -10, scale: 0.95 }}
+                      transition={{ duration: 0.15 }}
+                      className="bg-surface border-border absolute top-full right-0 z-50 mt-2 w-52 rounded-xl border py-1.5 shadow-xl shadow-black/20"
+                    >
+                      <button
+                        onClick={handleDownloadICS}
+                        className="text-foreground flex w-full items-center gap-2.5 px-3 py-2 text-left text-sm transition-colors hover:text-[#E8A0B0]"
+                      >
+                        <svg
+                          className="h-4 w-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                          />
+                        </svg>
+                        <span>Download .ics</span>
+                        <span className="text-muted ml-auto text-xs">Apple</span>
+                      </button>
+                      <button
+                        onClick={handleGoogleCalendar}
+                        className="text-foreground flex w-full items-center gap-2.5 px-3 py-2 text-left text-sm transition-colors hover:text-[#E8A0B0]"
+                      >
+                        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19.5 22h-15A2.5 2.5 0 012 19.5v-15A2.5 2.5 0 014.5 2H9v2H4.5a.5.5 0 00-.5.5v15a.5.5 0 00.5.5h15a.5.5 0 00.5-.5V15h2v4.5a2.5 2.5 0 01-2.5 2.5zM13 2v2h5.59L8.29 14.29l1.41 1.41L20 5.41V11h2V2h-9z" />
+                        </svg>
+                        <span>Google Calendar</span>
+                        <span className="text-muted ml-auto text-xs">Open</span>
+                      </button>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* RSVP link */}
+              <a
+                href={BITDEVS_EVENT.rsvpUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-border/50 hover:text-background flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all hover:bg-[var(--card-accent)]"
               >
                 <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -135,52 +199,10 @@ export function BitDevsCard() {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
-              </button>
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                    transition={{ duration: 0.15 }}
-                    className="bg-surface border-border absolute top-full right-0 z-50 mt-2 w-52 rounded-xl border py-1.5 shadow-xl shadow-black/20"
-                  >
-                    <button
-                      onClick={handleDownloadICS}
-                      className="text-foreground flex w-full items-center gap-2.5 px-3 py-2 text-left text-sm transition-colors hover:text-[#E8A0B0]"
-                    >
-                      <svg
-                        className="h-4 w-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                        />
-                      </svg>
-                      <span>Download .ics</span>
-                      <span className="text-muted ml-auto text-xs">Apple</span>
-                    </button>
-                    <button
-                      onClick={handleGoogleCalendar}
-                      className="text-foreground flex w-full items-center gap-2.5 px-3 py-2 text-left text-sm transition-colors hover:text-[#E8A0B0]"
-                    >
-                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19.5 22h-15A2.5 2.5 0 012 19.5v-15A2.5 2.5 0 014.5 2H9v2H4.5a.5.5 0 00-.5.5v15a.5.5 0 00.5.5h15a.5.5 0 00.5-.5V15h2v4.5a2.5 2.5 0 01-2.5 2.5zM13 2v2h5.59L8.29 14.29l1.41 1.41L20 5.41V11h2V2h-9z" />
-                      </svg>
-                      <span>Google Calendar</span>
-                      <span className="text-muted ml-auto text-xs">Open</span>
-                    </button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+              </a>
             </div>
           </div>
         </CardContent>

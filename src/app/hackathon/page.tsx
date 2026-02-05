@@ -315,7 +315,7 @@ function ImpactSection() {
               <div className="text-4xl font-bold text-orange-400 md:text-5xl">
                 <AnimatedCounter value={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="mt-2 font-medium text-foreground">{stat.label}</p>
+              <p className="text-foreground mt-2 font-medium">{stat.label}</p>
               <p className="text-muted text-xs">{stat.sublabel}</p>
             </motion.div>
           ))}
@@ -330,7 +330,10 @@ function ImpactSection() {
           className="grid gap-8 md:grid-cols-2"
         >
           {/* Past Innovations */}
-          <motion.div variants={cardVariants} className="bg-background border-border rounded-xl border p-6">
+          <motion.div
+            variants={cardVariants}
+            className="bg-background border-border rounded-xl border p-6"
+          >
             <div className="mb-4 flex items-center gap-2">
               <TrendingUp className="h-5 w-5 text-orange-400" />
               <h3 className="text-lg font-semibold">Past Innovations</h3>
@@ -349,7 +352,10 @@ function ImpactSection() {
           </motion.div>
 
           {/* Where Alumni Go */}
-          <motion.div variants={cardVariants} className="bg-background border-border rounded-xl border p-6">
+          <motion.div
+            variants={cardVariants}
+            className="bg-background border-border rounded-xl border p-6"
+          >
             <div className="mb-4 flex items-center gap-2">
               <Users2 className="h-5 w-5 text-orange-400" />
               <h3 className="text-lg font-semibold">Where Alumni Go</h3>
