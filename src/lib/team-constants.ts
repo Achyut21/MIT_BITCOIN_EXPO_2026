@@ -13,7 +13,6 @@ export type TeamCategory = {
 
 // Real images from mitbtcexpo.org
 const TEAM_IMAGES = {
-  adam: "https://www.mitbtcexpo.org/assets/img/team/Adam.jpeg",
   ben: "https://www.mitbtcexpo.org/assets/img/team/Ben.jpeg",
   cameron: "https://www.mitbtcexpo.org/assets/img/team/Cameron.jpeg",
   hash: "https://www.mitbtcexpo.org/assets/img/team/Hash.jpeg",
@@ -23,6 +22,9 @@ const TEAM_IMAGES = {
   yi: "/team/yi.webp",
   rojina: "/team/rojina.webp",
   carys: "/team/Carys.webp",
+  michelle: "/team/michelle.webp",
+  thomas: "/team/tom.webp",
+  adam: "/team/adam.webp"
 };
 
 // Linked list of team categories and their members
@@ -32,6 +34,9 @@ const LinkedInLink = {
   yi: "https://www.linkedin.com/in/yiliu-mit/",
   rojina: "https://www.linkedin.com/in/rojina-adhikari-1464b5282/",
   carys: "https://www.linkedin.com/in/carys-chan-8a2588298/",
+  michelle: "https://www.linkedin.com/in/michelle-cao-4437a220a/",
+  thomas: "https://www.linkedin.com/in/tomcpilla/",
+  adam: "https://www.linkedin.com/in/agebner/"
 };
 
 export const teamCategories: TeamCategory[] = [
@@ -83,7 +88,7 @@ export const teamCategories: TeamCategory[] = [
         team: "Content",
         role: "Co-Chair",
         image: TEAM_IMAGES.adam,
-        linkedin: "#",
+        linkedin: LinkedInLink.adam,
       },
       {
         name: "Hash",
@@ -119,13 +124,6 @@ export const teamCategories: TeamCategory[] = [
         linkedin: "#",
       },
       {
-        name: "Kevin",
-        team: "Hackathon",
-        role: "Co-Chair",
-        image: "",
-        linkedin: "#",
-      },
-      {
         name: "Achyut Katiyar",
         team: "Hackathon",
         role: "Co-Chair",
@@ -154,9 +152,9 @@ export const teamCategories: TeamCategory[] = [
       {
         name: "Michelle C",
         team: "Logistics",
-        role: "Volunteer",
-        image: "",
-        linkedin: "#",
+        role: "Co-Chair (Lead)",
+        image: TEAM_IMAGES.michelle,
+        linkedin: LinkedInLink.michelle,
       },
     ],
   },
@@ -185,9 +183,16 @@ export const teamCategories: TeamCategory[] = [
         linkedin: LinkedInLink.carys,
       },
       {
-        name: "Achyut Katiyar",
+        name: "Thomas Pilla",
         team: "Marketing",
         role: "Co-Chair",
+        image: TEAM_IMAGES.thomas,
+        linkedin: LinkedInLink.thomas,
+      },
+      {
+        name: "Achyut Katiyar",
+        team: "Marketing",
+        role: "Co-Chair (Creator of this Website)",
         image: TEAM_IMAGES.achyut,
         linkedin: "#",
       },
@@ -201,13 +206,6 @@ export const teamCategories: TeamCategory[] = [
         team: "Sponsorship",
         role: "Co-Chair (Lead)",
         image: TEAM_IMAGES.ben,
-        linkedin: "#",
-      },
-      {
-        name: "Kevin",
-        team: "Sponsorship",
-        role: "Co-Chair",
-        image: "",
         linkedin: "#",
       },
       {
