@@ -15,7 +15,6 @@ export type TeamCategory = {
 const TEAM_IMAGES = {
   ben: "https://www.mitbtcexpo.org/assets/img/team/Ben.jpeg",
   cameron: "https://www.mitbtcexpo.org/assets/img/team/Cameron.jpeg",
-  hash: "https://www.mitbtcexpo.org/assets/img/team/Hash.jpeg",
   thomaz: "https://www.mitbtcexpo.org/assets/img/team/Luiz.jpeg",
   achyut: "/team/achyut-katiyar.webp",
   arul: "/team/Arul.webp",
@@ -24,7 +23,8 @@ const TEAM_IMAGES = {
   carys: "/team/Carys.webp",
   michelle: "/team/michelle.webp",
   thomas: "/team/tom.webp",
-  adam: "/team/adam.webp"
+  adam: "/team/adam.webp",
+  hash: "/team/hash.webp"
 };
 
 // Linked list of team categories and their members
@@ -36,7 +36,8 @@ const LinkedInLink = {
   carys: "https://www.linkedin.com/in/carys-chan-8a2588298/",
   michelle: "https://www.linkedin.com/in/michelle-cao-4437a220a/",
   thomas: "https://www.linkedin.com/in/tomcpilla/",
-  adam: "https://www.linkedin.com/in/agebner/"
+  adam: "https://www.linkedin.com/in/agebner/",
+  hash: "https://www.linkedin.com/in/h6239/"
 };
 
 export const teamCategories: TeamCategory[] = [
@@ -86,16 +87,16 @@ export const teamCategories: TeamCategory[] = [
       {
         name: "Adam",
         team: "Content",
-        role: "Co-Chair",
+        role: "Co-Chair | Associate at ego death",
         image: TEAM_IMAGES.adam,
         linkedin: LinkedInLink.adam,
       },
       {
         name: "Hash",
         team: "Content",
-        role: "Volunteer",
+        role: "Advisor",
         image: TEAM_IMAGES.hash,
-        linkedin: "#",
+        linkedin: LinkedInLink.hash,
       },
       {
         name: "Manish",
