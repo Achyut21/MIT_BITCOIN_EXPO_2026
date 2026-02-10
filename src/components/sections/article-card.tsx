@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { BitDevsCard } from "./bitdevs-card";
+import { LogoDescription } from "./logo-description";
 
 function ArticleCardItem({
   href,
@@ -73,6 +74,7 @@ export function ArticleCard() {
     <section className="px-6 py-16">
       <div className="mx-auto max-w-2xl space-y-4">
         <BitDevsCard />
+        <LogoDescription />
         <ArticleCardItem
           href="https://medium.com/mitbitcoinclub/mit-bitcoin-expo-2026-freedom-for-all-1ea60d941bfc"
           category="Announcement"
