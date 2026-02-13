@@ -152,7 +152,7 @@ export function Hero() {
       </div>
 
       {/* Bottom gradient fade */}
-      <div className="from-background absolute right-0 bottom-0 left-0 z-10 h-40 bg-gradient-to-t to-transparent" />
+      <div className="from-background pointer-events-none absolute right-0 bottom-0 left-0 z-10 h-40 bg-gradient-to-t to-transparent" />
     </section>
   );
 }
