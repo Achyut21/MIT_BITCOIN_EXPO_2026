@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MIT Bitcoin Expo 2026
+
+The official website for the **13th Annual MIT Bitcoin Expo** — a two-day conference and 36-hour hackathon hosted at the MIT Campus on April 11–12, 2026.
+
+**Theme: Freedom for All**
+
+🌐 [mitbitcoinexpo.org](https://mitbitcoinexpo.org)
+
+## About
+
+MIT Bitcoin Expo is the longest-running university-hosted Bitcoin event in the world. Since 2014, the expo has brought together developers, researchers, and enthusiasts to explore the frontiers of Bitcoin and decentralized technology. The 2026 edition features a conference with industry-leading speakers and a hackathon with a community-first prize model — 70% of the prize pool is shared among all qualifying participants.
+
+## Tech Stack
+
+- **Framework:** Next.js 15+ (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS v4
+- **Components:** shadcn/ui + Radix primitives
+- **Animation:** Motion (Framer Motion)
+- **3D:** React Three Fiber + Drei
+- **Deployment:** Vercel
+- **Analytics:** Vercel Analytics
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Lint
+npm run lint
+
+# Build for production
+npm run build
+
+# Format code
+npm run format
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site locally.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                  # Next.js App Router pages
+│   ├── page.tsx          # Homepage
+│   ├── hackathon/        # Hackathon details page
+│   ├── speakers/         # Speakers page
+│   ├── team/             # Team page
+│   ├── layout.tsx        # Root layout
+│   ├── robots.ts         # SEO robots config
+│   └── sitemap.ts        # SEO sitemap generation
+├── components/
+│   ├── ui/               # shadcn/ui primitives
+│   ├── layout/           # Navbar, Footer
+│   ├── sections/         # Page sections (Hero, Countdown, etc.)
+│   ├── animations/       # Animation components
+│   ├── seo/              # SEO & structured data
+│   └── 3d/               # Three.js components
+├── data/                 # Static data files
+└── lib/                  # Utilities & constants
+```
 
-## Learn More
+## Developed By
 
-To learn more about Next.js, take a look at the following resources:
+- **Achyut Katiyar** — [GitHub](https://github.com/Achyut21) · [LinkedIn](https://www.linkedin.com/in/achyutkatiyar2103/)
+- **Shivam Kumar** (crafted the beautiful Team Page ✨) — [GitHub](https://github.com/P0ffin22) · [LinkedIn](https://www.linkedin.com/in/shivam-kumar-563ab3382/)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The source code is licensed under the [MIT License](./LICENSE).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> **Note:** The MIT Bitcoin Expo name, logo, mascot, visual assets, speaker/team photos, and branding are **not** included under this license and remain the property of MIT Bitcoin Expo. This license applies to the website source code only.
