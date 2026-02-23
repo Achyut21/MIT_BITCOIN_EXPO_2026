@@ -6,7 +6,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Background } from "@/components/animations/background";
 import { SpeakerCard } from "@/components/sections/speaker-card";
-import { currentSpeakers, previousSpeakers } from "@/lib/speakers-constants";
+import { currentSpeakers, previousSpeakers, generateSlug } from "@/lib/speakers-constants";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -115,7 +115,12 @@ export default function SpeakersPage() {
             {hasCurrentSpeakers ? (
               <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
                 {currentSpeakers.map((speaker, index) => (
-                  <SpeakerCard key={speaker.name} speaker={speaker} index={index} />
+                  <SpeakerCard
+                    key={speaker.name}
+                    speaker={speaker}
+                    index={index}
+                    href={`/speakers/${generateSlug(speaker.name)}`}
+                  />
                 ))}
               </div>
             ) : (
@@ -130,6 +135,18 @@ export default function SpeakersPage() {
                   Speaker announcements for 2026 will be revealed shortly
                 </p>
               </motion.div>
+            )}
+
+            {hasCurrentSpeakers && (
+              <motion.p
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="text-muted mt-8 text-center text-sm"
+              >
+                More speakers to be announced soon
+              </motion.p>
             )}
           </motion.div>
         </div>

@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# unannounced speaker images
+public/2026Speakers/unannounced
+
 # debug
 npm-debug.log*
 yarn-debug.log*
