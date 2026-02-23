@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import {
   getSpeakerBySlug,
   getAllSpeakerSlugs,
+  generateSlug,
 } from "@/lib/speakers-constants";
+import { JsonLd } from "@/components/seo/json-ld";
 import { SpeakerDetail } from "./speaker-detail";
 
 interface Props {
@@ -47,5 +49,26 @@ export default async function SpeakerPage({ params }: Props) {
   const speaker = getSpeakerBySlug(slug);
   if (!speaker) notFound();
 
-  return <SpeakerDetail speaker={speaker} />;
+  const baseUrl = "https://mitbitcoinexpo.org";
+  const speakerImage = speaker.image.startsWith("/")
+    ? `${baseUrl}${speaker.image}`
+    : speaker.image;
+
+  const personLd: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: speaker.name,
+    jobTitle: speaker.title,
+    image: speakerImage,
+    url: `${baseUrl}/speakers/${generateSlug(speaker.name)}`,
+    ...(speaker.bio && { description: speaker.bio }),
+    ...(speaker.socials?.x && { sameAs: [speaker.socials.x, speaker.socials.linkedin].filter(Boolean) }),
+  };
+
+  return (
+    <>
+      <JsonLd data={personLd} />
+      <SpeakerDetail speaker={speaker} />
+    </>
+  );
 }
