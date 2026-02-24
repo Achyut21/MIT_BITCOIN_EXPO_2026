@@ -24,7 +24,9 @@ const TEAM_IMAGES = {
   thomas: "/team/tom.webp",
   adam: "/team/adam.webp",
   hash: "/team/hash.webp",
-  cameron: "/team/cam.webp"
+  cameron: "/team/cam.webp",
+  namnueng: "/team/namnueng.webp",
+  nicole: "/team/nicole.webp"
 };
 
 // Linked list of team categories and their members
@@ -38,7 +40,9 @@ const LinkedInLink = {
   thomas: "https://www.linkedin.com/in/tomcpilla/",
   adam: "https://www.linkedin.com/in/agebner/",
   hash: "https://www.linkedin.com/in/h6239/",
-  cameron: "https://www.linkedin.com/in/cameron-moini-207496232/"
+  cameron: "https://www.linkedin.com/in/cameron-moini-207496232/",
+  namnueng: "https://www.linkedin.com/in/namnueng/",
+  nicole: "https://www.linkedin.com/in/nicole-wu-47b317109/"
 };
 
 export const teamCategories: TeamCategory[] = [
@@ -49,15 +53,15 @@ export const teamCategories: TeamCategory[] = [
         name: "Namnueng Protpagorn",
         team: "Board",
         role: "Co-Director",
-        image: "",
-        linkedin: "#",
+        image: TEAM_IMAGES.namnueng,
+        linkedin: LinkedInLink.namnueng,
       },
       {
         name: "Nicole Yifan Wu",
         team: "Board",
         role: "Co-Director",
-        image: "",
-        linkedin: "#",
+        image: TEAM_IMAGES.nicole,
+        linkedin: LinkedInLink.nicole,
       },
       {
         name: "Thomaz",
