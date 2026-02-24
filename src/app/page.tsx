@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { ArticleCard } from "@/components/sections/article-card";
+import { SpeakerStrip } from "@/components/sections/speaker-strip";
 import { Countdown } from "@/components/sections/countdown";
 import { JsonLd } from "@/components/seo/json-ld";
 
@@ -77,6 +78,7 @@ export default function Home() {
       <JsonLd data={orgJsonLd} />
       <Navbar />
       <Hero />
+      <SpeakerStrip />
       <ArticleCard />
       <Countdown />
       <Footer />
