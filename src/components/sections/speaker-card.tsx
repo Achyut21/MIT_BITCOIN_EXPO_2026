@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import type { Speaker } from "@/lib/speakers-constants";
 
 interface SpeakerCardProps {
   speaker: Speaker;
   index?: number;
+  href?: string;
 }
 
 function getInitials(name: string): string {
@@ -48,11 +50,63 @@ function getColorFromName(name: string): string {
   return colors[Math.abs(hash) % colors.length];
 }
 
-export function SpeakerCard({ speaker, index = 0 }: SpeakerCardProps) {
+export function SpeakerCard({ speaker, index = 0, href }: SpeakerCardProps) {
   const [imageError, setImageError] = useState(false);
   const initials = getInitials(speaker.name);
   const bgColor = getColorFromName(speaker.name);
   const hasImage = speaker.image && speaker.image.length > 0;
+
+  const cardClasses = cn(
+    "relative block overflow-hidden rounded-xl",
+    "bg-surface border-border border",
+    "hover:border-accent/50 transition-all duration-300",
+    "hover:shadow-accent/5 hover:-translate-y-1 hover:shadow-lg",
+    href && "cursor-pointer"
+  );
+
+  const cardContent = (
+    <>
+      {/* Square Image or Initials Fallback */}
+      <div className="relative aspect-square overflow-hidden">
+        {imageError || !hasImage ? (
+          <div
+            className={cn(
+              "flex h-full w-full items-center justify-center",
+              "bg-surface",
+              bgColor
+            )}
+          >
+            <span className="text-foreground/80 text-4xl font-bold sm:text-5xl">{initials}</span>
+          </div>
+        ) : (
+          <Image
+            src={speaker.image}
+            alt={speaker.name}
+            fill
+            className={cn(
+              "object-cover transition-transform duration-500",
+              "group-hover:scale-105"
+            )}
+            onError={() => setImageError(true)}
+          />
+        )}
+        <div className="from-surface/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      </div>
+
+      {/* Info Section */}
+      <div className="p-4">
+        <h3
+          className={cn(
+            "text-foreground truncate font-semibold",
+            "group-hover:text-accent transition-colors duration-300"
+          )}
+        >
+          {speaker.name}
+        </h3>
+        <p className="text-muted line-clamp-2 text-sm">{speaker.title}</p>
+      </div>
+    </>
+  );
 
   return (
     <motion.div
@@ -66,54 +120,15 @@ export function SpeakerCard({ speaker, index = 0 }: SpeakerCardProps) {
       }}
       className="group"
     >
-      <div
-        className={cn(
-          "relative overflow-hidden rounded-xl",
-          "bg-surface border-border border",
-          "hover:border-accent/50 transition-all duration-300",
-          "hover:shadow-accent/5 hover:-translate-y-1 hover:shadow-lg"
-        )}
-      >
-        {/* Square Image or Initials Fallback */}
-        <div className="relative aspect-square overflow-hidden">
-          {imageError || !hasImage ? (
-            <div
-              className={cn(
-                "flex h-full w-full items-center justify-center",
-                "bg-surface",
-                bgColor
-              )}
-            >
-              <span className="text-foreground/80 text-4xl font-bold sm:text-5xl">{initials}</span>
-            </div>
-          ) : (
-            <Image
-              src={speaker.image}
-              alt={speaker.name}
-              fill
-              className={cn(
-                "object-cover transition-transform duration-500",
-                "group-hover:scale-105"
-              )}
-              onError={() => setImageError(true)}
-            />
-          )}
-          <div className="from-surface/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+      {href ? (
+        <Link href={href} className={cardClasses}>
+          {cardContent}
+        </Link>
+      ) : (
+        <div className={cardClasses}>
+          {cardContent}
         </div>
-
-        {/* Info Section */}
-        <div className="p-4">
-          <h3
-            className={cn(
-              "text-foreground truncate font-semibold",
-              "group-hover:text-accent transition-colors duration-300"
-            )}
-          >
-            {speaker.name}
-          </h3>
-          <p className="text-muted line-clamp-2 text-sm">{speaker.title}</p>
-        </div>
-      </div>
+      )}
     </motion.div>
   );
 }
