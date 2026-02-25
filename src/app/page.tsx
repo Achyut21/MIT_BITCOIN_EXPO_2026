@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { ArticleCard } from "@/components/sections/article-card";
 import { SpeakerStrip } from "@/components/sections/speaker-strip";
+import { HomeSponsors } from "@/components/sections/home-sponsors";
 import { Countdown } from "@/components/sections/countdown";
 import { JsonLd } from "@/components/seo/json-ld";
 
@@ -79,6 +80,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <SpeakerStrip />
+      <HomeSponsors />
       <ArticleCard />
       <Countdown />
       <Footer />
