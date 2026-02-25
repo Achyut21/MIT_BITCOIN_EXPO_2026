@@ -128,18 +128,18 @@ export function TeamMemberCard({ member, index = 0 }: TeamMemberCardProps) {
         </div>
 
         {/* Info Section */}
-        <div className="flex items-center justify-between gap-3 p-4">
+        <div className="flex items-center justify-between gap-3 px-4 py-5">
           {/* Name and Role - Left side */}
           <div className="min-w-0 flex-1">
             <h3
               className={cn(
-                "text-foreground truncate font-semibold",
+                "text-foreground font-semibold",
                 "group-hover:text-accent transition-colors duration-300"
               )}
             >
               {member.name}
             </h3>
-            <p className="text-muted truncate text-sm">{member.role}</p>
+            <p className="text-muted text-sm">{member.role}</p>
           </div>
 
           {/* LinkedIn - Right side, vertically centered with name */}

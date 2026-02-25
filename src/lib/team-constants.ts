@@ -170,7 +170,7 @@ export const teamCategories: TeamCategory[] = [
       {
         name: "Julie",
         team: "Marketing",
-        role: "Co-Chair",
+        role: "Co-Chair(Lead)",
         image: "",
         linkedin: "#",
       },
@@ -198,7 +198,7 @@ export const teamCategories: TeamCategory[] = [
       {
         name: "Achyut Katiyar",
         team: "Marketing",
-        role: "Co-Chair (Creator of this Website)",
+        role: "Co-Chair · Shipped this site",
         image: TEAM_IMAGES.achyut,
         linkedin: "#",
       },
