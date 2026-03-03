@@ -70,7 +70,7 @@ export const currentSpeakers: Speaker[] = [
   {
     name: "Liam Eagen",
     title: "CEO & Co-founder, { ideal }",
-    image: "",
+    image: "/2026Speakers/Liam Eagen.webp",
     bio: "Researcher working on verifying SNARKs on Bitcoin and private transaction protocols like ShieldedCSV. Currently working on a new garbled circuit protocol Argo and new BitVM bridge protocols at Ideal Group. Previously research at Alpen Labs and Blockstream.",
     topics: ["Argo: Garbled SNARK Verifiers", "Shielded CSV"],
     availability: "Full weekend",
@@ -379,6 +379,42 @@ export const previousSpeakers: Speaker[] = [
     title: "Damus Founder & CEO",
     image: "/2025Speakers/William Casarin.webp",
   },
+];
+
+// Notable Past Speakers (Previous Years)
+export const pastSpeakers: Speaker[] = [
+  { name: "Michael Saylor", title: "Executive Chairman, MicroStrategy", image: "/previousYearSpeaker/MichaelSaylor.webp" },
+  { name: "Andreas Antonopoulos", title: "Bitcoin Educator and Author, Mastering Bitcoin", image: "/previousYearSpeaker/AndreasAntonopoulos.webp" },
+  { name: "Charlie Lee", title: "Creator of Litecoin", image: "/previousYearSpeaker/CharlieLee.webp" },
+  { name: "Jameson Lopp", title: "CTO, Casa", image: "/previousYearSpeaker/JamesonLopp.webp" },
+  { name: "Peter McCormack", title: "Podcast Host", image: "/previousYearSpeaker/PeterMcCormack21.webp" },
+  { name: "Elizabeth Stark", title: "CEO, Lightning Labs", image: "/previousYearSpeaker/ElizabethStark.webp" },
+  { name: "Jimmy Song", title: "Author, Programming Bitcoin", image: "/previousYearSpeaker/JimmySong.webp" },
+  { name: "Dylan LeClair", title: "Bitcoin Analyst and Researcher", image: "/previousYearSpeaker/DylanLeClair.webp" },
+  { name: "Jason Lowery", title: "US Space Force; Author, Softwar", image: "/previousYearSpeaker/JasonLowery.webp" },
+  { name: "ODELL", title: "Host, Citadel Dispatch", image: "/previousYearSpeaker/ODELL.webp" },
+  { name: "Peter Todd", title: "Bitcoin Core Developer", image: "/previousYearSpeaker/PeterTodd19.webp" },
+  { name: "Gavin Andresen", title: "Former Chief Scientist, Bitcoin Foundation", image: "/previousYearSpeaker/GavinAndresen.webp" },
+  { name: "Gary Gensler", title: "Former Chair, SEC; Professor, MIT Sloan", image: "/previousYearSpeaker/GaryGensler19.webp" },
+  { name: "Arvind Narayanan", title: "Professor of Computer Science, Princeton University", image: "/previousYearSpeaker/ArvindNarayanan.webp" },
+  { name: "Neha Narula", title: "Director, MIT Digital Currency Initiative", image: "/previousYearSpeaker/NehaNarula.webp" },
+  { name: "Matt Corallo", title: "Bitcoin Core Developer; Engineer, Spiral", image: "/previousYearSpeaker/MattCorallo.webp" },
+  { name: "Evan Mawarire", title: "Pastor and Pro-Democracy Activist", image: "/previousYearSpeaker/EvanMawarire.webp" },
+  { name: "Farida Nabourema", title: "Executive Director, Togolese Civil League", image: "/previousYearSpeaker/FaridaNabourema.webp" },
+  { name: "Robin Linus", title: "Creator of BitVM", image: "/previousYearSpeaker/RobinLinus.webp" },
+  { name: "Pieter Wuille", title: "Bitcoin Core Developer", image: "/previousYearSpeaker/PieterWuille.webp" },
+  { name: "Jeremy Rubin", title: "CEO, Judica; Bitcoin Core Contributor", image: "/previousYearSpeaker/JeremyRubin26.webp" },
+  { name: "John Newbery", title: "Bitcoin Core Contributor; Co-founder, Brink", image: "/previousYearSpeaker/JohnNewbery.webp" },
+  { name: "Gloria Zhao", title: "Bitcoin Core Developer; Engineer, Chaincode Labs", image: "/previousYearSpeaker/GloriaZhao.webp" },
+  { name: "Sjors Provoost", title: "Bitcoin Core Developer; Author", image: "/previousYearSpeaker/SjorsProvoost.webp" },
+  { name: "Tadge Dryja", title: "Co-creator of the Lightning Network; Researcher, MIT DCI", image: "/previousYearSpeaker/TadgeDryja.webp" },
+  { name: "Antoine Poinsot", title: "Co-founder, Chaincode Labs", image: "/previousYearSpeaker/AntoinePoinsot.webp" },
+  { name: "Christian Catalini", title: "Co-creator of Diem; Research Scientist, MIT Sloan", image: "/previousYearSpeaker/ChristianCatalini.webp" },
+  { name: "Joseph Poon", title: "Co-creator of the Lightning Network", image: "/previousYearSpeaker/JosephPoon.webp" },
+  { name: "Elaine Shi", title: "Professor of Computer Science, Carnegie Mellon University", image: "/previousYearSpeaker/ElaineShi19.webp" },
+  { name: "Timothy Massad", title: "Former Chair, CFTC; Senior Fellow, Harvard Kennedy School", image: "/previousYearSpeaker/TimothyMassad.webp" },
+  { name: "Andrew Poelstra", title: "Director of Research, Blockstream", image: "/previousYearSpeaker/AndrewPoelstra.webp" },
+  { name: "Jeff Walton", title: "Chief Risk Officer and CTO, True North", image: "/previousYearSpeaker/JeffWalton.webp" },
 ];
 
 export function getSpeakerBySlug(slug: string): Speaker | undefined {

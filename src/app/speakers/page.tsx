@@ -6,7 +6,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Background } from "@/components/animations/background";
 import { SpeakerCard } from "@/components/sections/speaker-card";
-import { currentSpeakers, previousSpeakers, generateSlug } from "@/lib/speakers-constants";
+import { currentSpeakers, previousSpeakers, pastSpeakers, generateSlug } from "@/lib/speakers-constants";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -171,6 +171,31 @@ export default function SpeakersPage() {
 
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
               {previousSpeakers.map((speaker, index) => (
+                <SpeakerCard key={speaker.name} speaker={speaker} index={index} />
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Notable Past Speakers Section */}
+      <section className="relative z-10 pb-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="mb-8">
+              <h2 className="text-foreground text-2xl font-bold sm:text-3xl">
+                Notable Past Speakers
+              </h2>
+              <div className="bg-accent mt-2 h-1 w-16 rounded-full" />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 lg:grid-cols-4">
+              {pastSpeakers.map((speaker, index) => (
                 <SpeakerCard key={speaker.name} speaker={speaker} index={index} />
               ))}
             </div>
