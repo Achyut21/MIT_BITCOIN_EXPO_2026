@@ -14,7 +14,6 @@ export type TeamCategory = {
 // Real images from mitbtcexpo.org
 const TEAM_IMAGES = {
   ben: "https://www.mitbtcexpo.org/assets/img/team/Ben.jpeg",
-  thomaz: "https://www.mitbtcexpo.org/assets/img/team/Luiz.jpeg",
   achyut: "/team/achyut-katiyar.webp",
   arul: "/team/Arul.webp",
   yi: "/team/yi.webp",
@@ -26,7 +25,8 @@ const TEAM_IMAGES = {
   hash: "/team/hash.webp",
   cameron: "/team/cam.webp",
   namnueng: "/team/namnueng.webp",
-  nicole: "/team/nicole.webp"
+  nicole: "/team/nicole.webp",
+  thomaz: "/team/thomaz.webp"
 };
 
 // Linked list of team categories and their members
@@ -42,7 +42,8 @@ const LinkedInLink = {
   hash: "https://www.linkedin.com/in/h6239/",
   cameron: "https://www.linkedin.com/in/cameron-moini-207496232/",
   namnueng: "https://www.linkedin.com/in/namnueng/",
-  nicole: "https://www.linkedin.com/in/nicole-wu-47b317109/"
+  nicole: "https://www.linkedin.com/in/nicole-wu-47b317109/",
+  thomaz: "https://www.linkedin.com/in/luiz-thomaz-5023977/"
 };
 
 export const teamCategories: TeamCategory[] = [
@@ -68,7 +69,7 @@ export const teamCategories: TeamCategory[] = [
         team: "Board",
         role: "Co-Director",
         image: TEAM_IMAGES.thomaz,
-        linkedin: "#",
+        linkedin: LinkedInLink.thomaz,
       },
     ],
   },
