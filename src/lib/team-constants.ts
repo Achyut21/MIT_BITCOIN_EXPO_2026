@@ -26,7 +26,9 @@ const TEAM_IMAGES = {
   cameron: "/team/cam.webp",
   namnueng: "/team/namnueng.webp",
   nicole: "/team/nicole.webp",
-  thomaz: "/team/thomaz.webp"
+  thomaz: "/team/thomaz.webp",
+  manish: "/team/manish.webp",
+  frank: "/team/frank.webp"
 };
 
 // Linked list of team categories and their members
@@ -43,7 +45,8 @@ const LinkedInLink = {
   cameron: "https://www.linkedin.com/in/cameron-moini-207496232/",
   namnueng: "https://www.linkedin.com/in/namnueng/",
   nicole: "https://www.linkedin.com/in/nicole-wu-47b317109/",
-  thomaz: "https://www.linkedin.com/in/luiz-thomaz-5023977/"
+  thomaz: "https://www.linkedin.com/in/luiz-thomaz-5023977/",
+  manish: "https://www.linkedin.com/in/manish-kumar-68810326a/"
 };
 
 export const teamCategories: TeamCategory[] = [
@@ -78,18 +81,18 @@ export const teamCategories: TeamCategory[] = [
     name: "Content",
     members: [
       {
+        name: "Manish",
+        team: "Content",
+        role: "Co-Chair",
+        image: TEAM_IMAGES.manish,
+        linkedin: LinkedInLink.manish,
+      },
+      {
         name: "Cameron",
         team: "Content",
         role: "Co-Chair (Lead)",
         image: TEAM_IMAGES.cameron,
         linkedin: LinkedInLink.cameron,
-      },
-      {
-        name: "Ishaana",
-        team: "Content",
-        role: "Co-Chair",
-        image: "",
-        linkedin: "#",
       },
       {
         name: "Adam",
@@ -106,14 +109,14 @@ export const teamCategories: TeamCategory[] = [
         linkedin: LinkedInLink.hash,
       },
       {
-        name: "Manish",
+        name: "Trey",
         team: "Content",
         role: "Co-Chair",
         image: "",
         linkedin: "#",
       },
       {
-        name: "Trey",
+        name: "Ishaana",
         team: "Content",
         role: "Co-Chair",
         image: "",
@@ -128,13 +131,13 @@ export const teamCategories: TeamCategory[] = [
         name: "Frank",
         team: "Hackathon",
         role: "Co-Chair (Lead)",
-        image: "",
+        image: TEAM_IMAGES.frank,
         linkedin: "#",
       },
       {
         name: "Achyut Katiyar",
         team: "Hackathon",
-        role: "Co-Chair",
+        role: "Co-Chair · Shipped this site",
         image: TEAM_IMAGES.achyut,
         linkedin: LinkedInLink.achyut,
       },
