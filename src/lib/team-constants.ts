@@ -81,18 +81,18 @@ export const teamCategories: TeamCategory[] = [
     name: "Content",
     members: [
       {
-        name: "Manish",
-        team: "Content",
-        role: "Co-Chair",
-        image: TEAM_IMAGES.manish,
-        linkedin: LinkedInLink.manish,
-      },
-      {
         name: "Cameron",
         team: "Content",
         role: "Co-Chair (Lead)",
         image: TEAM_IMAGES.cameron,
         linkedin: LinkedInLink.cameron,
+      },
+      {
+        name: "Manish",
+        team: "Content",
+        role: "Senior Advisor",
+        image: TEAM_IMAGES.manish,
+        linkedin: LinkedInLink.manish,
       },
       {
         name: "Adam",
