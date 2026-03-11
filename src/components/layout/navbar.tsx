@@ -244,7 +244,7 @@ function MobileMenu({
                 })}
                 <div className="border-border/30 mt-2 border-t pt-2">
                   <Link
-                    href="https://engage.mit.edu/mitbtc/rsvp_boot?id=916970"
+                    href="https://www.eventbrite.com/e/mit-bitcoin-expo-2026-tickets-1984845280665"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={onClose}
@@ -318,7 +318,7 @@ export function Navbar() {
           <div className="hidden items-center gap-4 md:flex">
             <AddToCalendarDropdown />
             <Link
-              href="https://engage.mit.edu/mitbtc/rsvp_boot?id=916970"
+              href="https://www.eventbrite.com/e/mit-bitcoin-expo-2026-tickets-1984845280665"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-accent text-accent-foreground hover:bg-accent/90 flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors"
