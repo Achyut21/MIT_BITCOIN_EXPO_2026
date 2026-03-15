@@ -49,10 +49,10 @@ function CompactSpeakerCard({ speaker }: { speaker: Speaker }) {
       href={`/speakers/${slug}`}
       className={cn(
         "group relative block w-44 shrink-0 sm:w-48",
-        "rounded-2xl overflow-hidden",
-        "bg-surface border border-border",
+        "overflow-hidden rounded-2xl",
+        "bg-surface border-border border",
         "hover:border-accent/60 transition-all duration-300",
-        "hover:-translate-y-1.5 hover:shadow-xl hover:shadow-accent/10"
+        "hover:shadow-accent/10 hover:-translate-y-1.5 hover:shadow-xl"
       )}
     >
       {/* Accent glow on hover */}
@@ -63,7 +63,7 @@ function CompactSpeakerCard({ speaker }: { speaker: Speaker }) {
         {imgError || !hasImage ? (
           <div
             className={cn(
-              "flex h-full w-full items-center justify-center bg-surface",
+              "bg-surface flex h-full w-full items-center justify-center",
               getColorFromName(speaker.name)
             )}
           >
@@ -140,7 +140,7 @@ export function SpeakerStrip() {
   if (currentSpeakers.length === 0) return null;
 
   return (
-    <section className="relative pt-16 pb-20 overflow-hidden">
+    <section className="relative overflow-hidden pt-16 pb-20">
       {/* Background glow */}
       <div className="pointer-events-none absolute inset-0">
         <div className="bg-accent/[0.04] absolute top-2/3 left-1/2 h-[500px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[150px]" />
@@ -159,9 +159,7 @@ export function SpeakerStrip() {
             <p className="text-accent mb-2 text-xs font-medium tracking-widest uppercase">
               Featured
             </p>
-            <h2 className="text-foreground text-2xl font-bold sm:text-3xl">
-              2026 Speakers
-            </h2>
+            <h2 className="text-foreground text-2xl font-bold sm:text-3xl">2026 Speakers</h2>
             <div className="bg-accent mt-3 h-1 w-16 rounded-full" />
           </div>
           <Link
@@ -170,7 +168,7 @@ export function SpeakerStrip() {
               "group flex items-center gap-2 rounded-lg px-4 py-2",
               "text-sm font-medium",
               "text-muted hover:text-accent",
-              "border border-transparent hover:border-accent/30",
+              "hover:border-accent/30 border border-transparent",
               "transition-all duration-300"
             )}
           >

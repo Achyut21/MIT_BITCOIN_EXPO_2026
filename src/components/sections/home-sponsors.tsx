@@ -36,7 +36,7 @@ function GoldSponsorCard({ sponsor }: { sponsor: Sponsor }) {
       href={sponsor.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block overflow-hidden rounded-xl border border-border hover:border-accent/50 transition-all duration-300"
+      className="group border-border hover:border-accent/50 relative block overflow-hidden rounded-xl border transition-all duration-300"
     >
       <video
         ref={videoRef}
@@ -58,7 +58,7 @@ function GoldSponsorCard({ sponsor }: { sponsor: Sponsor }) {
             alt={sponsor.name}
             width={300}
             height={80}
-            className="w-full max-h-14 object-contain sm:max-h-16"
+            className="max-h-14 w-full object-contain sm:max-h-16"
             onError={() => setImgError(true)}
           />
         )}
@@ -80,13 +80,18 @@ function SponsorLogo({ sponsor }: { sponsor: Sponsor }) {
         "px-4 py-5 sm:px-6 sm:py-6",
         "transition-all duration-300",
         sponsor.darkLogo
-          ? "border-border/60 bg-white/90 hover:bg-white hover:border-accent/30"
+          ? "border-border/60 hover:border-accent/30 bg-white/90 hover:bg-white"
           : "border-border bg-surface/50 hover:bg-surface hover:border-accent/40",
-        "hover:shadow-lg hover:shadow-accent/5"
+        "hover:shadow-accent/5 hover:shadow-lg"
       )}
     >
       {imgError ? (
-        <span className={cn("text-sm font-semibold", sponsor.darkLogo ? "text-stone-800" : "text-muted")}>
+        <span
+          className={cn(
+            "text-sm font-semibold",
+            sponsor.darkLogo ? "text-stone-800" : "text-muted"
+          )}
+        >
           {sponsor.name}
         </span>
       ) : (
@@ -95,7 +100,7 @@ function SponsorLogo({ sponsor }: { sponsor: Sponsor }) {
           alt={sponsor.name}
           width={200}
           height={60}
-          className="w-full max-h-8 object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100 sm:max-h-10"
+          className="max-h-8 w-full object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100 sm:max-h-10"
           onError={() => setImgError(true)}
         />
       )}
@@ -111,7 +116,7 @@ export function HomeSponsors() {
 
   return (
     <section className="px-6 py-12">
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -120,8 +125,8 @@ export function HomeSponsors() {
           className="mb-6 flex items-end justify-between"
         >
           <div>
-            <h2 className="text-foreground text-lg font-bold sm:text-xl">2026 Sponsors</h2>
-            <div className="bg-accent mt-1.5 h-0.5 w-10 rounded-full" />
+            <h2 className="text-foreground text-2xl font-bold sm:text-3xl">2026 Sponsors</h2>
+            <div className="bg-accent mt-2 h-1 w-16 rounded-full" />
           </div>
           <Link
             href="/sponsors"
@@ -144,7 +149,7 @@ export function HomeSponsors() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="space-y-4"
+          className="max-w-2xl space-y-4"
         >
           {gold.map((sponsor) => (
             <GoldSponsorCard key={sponsor.name} sponsor={sponsor} />

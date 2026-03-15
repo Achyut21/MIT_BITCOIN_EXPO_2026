@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { ArticleCard } from "@/components/sections/article-card";
+import { HomeBlogPreview } from "@/components/sections/home-blog-preview";
 import { SpeakerStrip } from "@/components/sections/speaker-strip";
 import { HomeSponsors } from "@/components/sections/home-sponsors";
 import { Countdown } from "@/components/sections/countdown";
@@ -81,6 +82,7 @@ export default function Home() {
       <Hero />
       <SpeakerStrip />
       <HomeSponsors />
+      <HomeBlogPreview />
       <ArticleCard />
       <Countdown />
       <Footer />

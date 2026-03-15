@@ -28,7 +28,7 @@ const TEAM_IMAGES = {
   nicole: "/team/nicole.webp",
   thomaz: "/team/thomaz.webp",
   manish: "/team/manish.webp",
-  frank: "/team/frank.webp"
+  frank: "/team/frank.webp",
 };
 
 // Linked list of team categories and their members
@@ -46,7 +46,7 @@ const LinkedInLink = {
   namnueng: "https://www.linkedin.com/in/namnueng/",
   nicole: "https://www.linkedin.com/in/nicole-wu-47b317109/",
   thomaz: "https://www.linkedin.com/in/luiz-thomaz-5023977/",
-  manish: "https://www.linkedin.com/in/manish-kumar-68810326a/"
+  manish: "https://www.linkedin.com/in/manish-kumar-68810326a/",
 };
 
 export const teamCategories: TeamCategory[] = [
@@ -74,7 +74,6 @@ export const teamCategories: TeamCategory[] = [
         image: TEAM_IMAGES.nicole,
         linkedin: LinkedInLink.nicole,
       },
-
     ],
   },
   {

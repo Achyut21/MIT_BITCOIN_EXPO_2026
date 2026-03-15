@@ -74,9 +74,7 @@ export function LogoDescription() {
               <h3 className="text-foreground group-hover:text-accent text-lg font-semibold transition-colors">
                 {LOGO_DESCRIPTION.title}
               </h3>
-              <p className="text-muted mt-2 text-sm">
-                {LOGO_DESCRIPTION.description}
-              </p>
+              <p className="text-muted mt-2 text-sm">{LOGO_DESCRIPTION.description}</p>
             </div>
           </div>
         </CardContent>
