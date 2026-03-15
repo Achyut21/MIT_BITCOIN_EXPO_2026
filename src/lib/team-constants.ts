@@ -15,7 +15,7 @@ export type TeamCategory = {
 const TEAM_IMAGES = {
   ben: "https://www.mitbtcexpo.org/assets/img/team/Ben.jpeg",
   achyut: "/team/achyut-katiyar.webp",
-  arul: "/team/Arul.webp",
+  arul: "/team/arul.webp",
   yi: "/team/yi.webp",
   rojina: "/team/rojina.webp",
   carys: "/team/Carys.webp",
