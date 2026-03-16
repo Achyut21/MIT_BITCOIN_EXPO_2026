@@ -34,12 +34,12 @@ function PostCard({ post, index }: { post: PostMeta; index: number }) {
   });
 
   const inner = (
-    <article className={cn(
-      "border-border bg-surface/40 relative rounded-xl border p-6 transition-all duration-300",
-      published
-        ? "hover:bg-surface/70 hover:border-accent/40"
-        : "opacity-60"
-    )}>
+    <article
+      className={cn(
+        "border-border bg-surface/40 relative rounded-xl border p-6 transition-all duration-300",
+        published ? "hover:bg-surface/70 hover:border-accent/40" : "opacity-60"
+      )}
+    >
       {!published && <CountdownOverlay publishDate={post.publishDate} />}
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0 flex-1">
@@ -47,14 +47,14 @@ function PostCard({ post, index }: { post: PostMeta; index: number }) {
             <Calendar className="h-3 w-3 shrink-0" />
             <span>{formattedDate}</span>
             <span className="text-muted/40">·</span>
-            <span className="text-accent/70 font-mono">
-              #{String(index + 1).padStart(2, "0")}
-            </span>
+            <span className="text-accent/70 font-mono">#{String(index + 1).padStart(2, "0")}</span>
           </div>
-          <h2 className={cn(
-            "mb-2 text-lg leading-snug font-bold transition-colors duration-200 sm:text-xl",
-            published ? "text-foreground group-hover:text-accent" : "text-foreground/60"
-          )}>
+          <h2
+            className={cn(
+              "mb-2 text-lg leading-snug font-bold transition-colors duration-200 sm:text-xl",
+              published ? "text-foreground group-hover:text-accent" : "text-foreground/60"
+            )}
+          >
             {post.title}
           </h2>
           <p className="text-muted line-clamp-2 text-sm leading-relaxed">{post.excerpt}</p>
@@ -71,7 +71,9 @@ function PostCard({ post, index }: { post: PostMeta; index: number }) {
   return (
     <motion.div variants={itemVariants}>
       {published ? (
-        <Link href={`/blog/${post.slug}`} className="group block">{inner}</Link>
+        <Link href={`/blog/${post.slug}`} className="group block">
+          {inner}
+        </Link>
       ) : (
         <div>{inner}</div>
       )}

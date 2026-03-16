@@ -26,9 +26,7 @@ function pad(n: number) {
 }
 
 export function useIsPublished(publishDate: string) {
-  const [published, setPublished] = useState(
-    () => new Date(publishDate).getTime() <= Date.now()
-  );
+  const [published, setPublished] = useState(() => new Date(publishDate).getTime() <= Date.now());
   useEffect(() => {
     if (published) return;
     const id = setInterval(() => {
@@ -53,12 +51,12 @@ export function CountdownOverlay({ publishDate }: { publishDate: string }) {
   const { days, hours, minutes, seconds } = timeLeft;
 
   return (
-    <div className="absolute inset-0 z-10 flex flex-col items-center justify-center rounded-2xl backdrop-blur-sm bg-background/60">
+    <div className="bg-background/60 absolute inset-0 z-10 flex flex-col items-center justify-center rounded-2xl backdrop-blur-sm">
       <div className="flex flex-col items-center gap-3 px-4 text-center">
         <div className="bg-accent/10 border-accent/20 flex h-9 w-9 items-center justify-center rounded-full border">
           <Lock className="text-accent h-4 w-4" />
         </div>
-        <p className="text-muted text-xs font-medium uppercase tracking-widest">Available in</p>
+        <p className="text-muted text-xs font-medium tracking-widest uppercase">Available in</p>
         <div className="flex items-center gap-2">
           {days > 0 && (
             <>
@@ -80,7 +78,7 @@ export function CountdownOverlay({ publishDate }: { publishDate: string }) {
 function TimeUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="text-foreground font-mono text-xl font-bold tabular-nums leading-none">
+      <span className="text-foreground font-mono text-xl leading-none font-bold tabular-nums">
         {pad(value)}
       </span>
       <span className="text-muted mt-0.5 text-[10px]">{label}</span>

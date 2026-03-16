@@ -18,21 +18,25 @@ function BlogPreviewCard({ post }: { post: PostMeta }) {
   });
 
   const card = (
-    <article className={cn(
-      "border-border bg-surface/40 flex h-full flex-col rounded-2xl border p-5 transition-all duration-300",
-      published
-        ? "hover:bg-surface/70 hover:border-accent/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/5"
-        : "opacity-60"
-    )}>
+    <article
+      className={cn(
+        "border-border bg-surface/40 flex h-full flex-col rounded-2xl border p-5 transition-all duration-300",
+        published
+          ? "hover:bg-surface/70 hover:border-accent/40 hover:shadow-accent/5 hover:-translate-y-1 hover:shadow-xl"
+          : "opacity-60"
+      )}
+    >
       {!published && <CountdownOverlay publishDate={post.publishDate} />}
       <div className="text-muted mb-3 flex items-center gap-1.5 text-xs">
         <Calendar className="h-3 w-3 shrink-0" />
         <span>{formattedDate}</span>
       </div>
-      <h3 className={cn(
-        "mb-3 flex-1 text-base font-bold leading-snug transition-colors duration-200",
-        published ? "text-foreground group-hover:text-accent" : "text-foreground/60"
-      )}>
+      <h3
+        className={cn(
+          "mb-3 flex-1 text-base leading-snug font-bold transition-colors duration-200",
+          published ? "text-foreground group-hover:text-accent" : "text-foreground/60"
+        )}
+      >
         {post.title}
       </h3>
       <p className="text-muted mb-4 line-clamp-3 text-sm leading-relaxed">{post.excerpt}</p>
