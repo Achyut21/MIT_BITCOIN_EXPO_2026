@@ -5,8 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 
 const STORAGE_KEY = "ticket-notice-dismissed";
-const EVENTBRITE_URL =
-  "https://www.eventbrite.com/e/mit-bitcoin-expo-2026-tickets-1984845280665";
+const EVENTBRITE_URL = "https://www.eventbrite.com/e/mit-bitcoin-expo-2026-tickets-1984845280665";
 
 export function TicketNotice() {
   const [visible, setVisible] = useState(() => {
@@ -35,7 +34,7 @@ export function TicketNotice() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-          className="fixed bottom-6 right-6 z-[60] w-[300px] max-w-[calc(100vw-3rem)]"
+          className="fixed right-6 bottom-6 z-[60] w-[300px] max-w-[calc(100vw-3rem)]"
         >
           <div className="bg-surface/60 border-border/50 overflow-hidden rounded-2xl border shadow-2xl shadow-black/40 backdrop-blur-2xl">
             <div className="p-4">

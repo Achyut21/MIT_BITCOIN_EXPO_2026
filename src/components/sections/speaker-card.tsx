@@ -70,11 +70,7 @@ export function SpeakerCard({ speaker, index = 0, href }: SpeakerCardProps) {
       <div className="relative aspect-square overflow-hidden">
         {imageError || !hasImage ? (
           <div
-            className={cn(
-              "flex h-full w-full items-center justify-center",
-              "bg-surface",
-              bgColor
-            )}
+            className={cn("flex h-full w-full items-center justify-center", "bg-surface", bgColor)}
           >
             <span className="text-foreground/80 text-4xl font-bold sm:text-5xl">{initials}</span>
           </div>
@@ -125,9 +121,7 @@ export function SpeakerCard({ speaker, index = 0, href }: SpeakerCardProps) {
           {cardContent}
         </Link>
       ) : (
-        <div className={cardClasses}>
-          {cardContent}
-        </div>
+        <div className={cardClasses}>{cardContent}</div>
       )}
     </motion.div>
   );

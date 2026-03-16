@@ -1,10 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import {
-  getSpeakerBySlug,
-  getAllSpeakerSlugs,
-  generateSlug,
-} from "@/lib/speakers-constants";
+import { getSpeakerBySlug, getAllSpeakerSlugs, generateSlug } from "@/lib/speakers-constants";
 import { JsonLd } from "@/components/seo/json-ld";
 import { SpeakerDetail } from "./speaker-detail";
 
@@ -50,9 +46,7 @@ export default async function SpeakerPage({ params }: Props) {
   if (!speaker) notFound();
 
   const baseUrl = "https://mitbitcoinexpo.org";
-  const speakerImage = speaker.image.startsWith("/")
-    ? `${baseUrl}${speaker.image}`
-    : speaker.image;
+  const speakerImage = speaker.image.startsWith("/") ? `${baseUrl}${speaker.image}` : speaker.image;
 
   const personLd: Record<string, unknown> = {
     "@context": "https://schema.org",
@@ -62,7 +56,9 @@ export default async function SpeakerPage({ params }: Props) {
     image: speakerImage,
     url: `${baseUrl}/speakers/${generateSlug(speaker.name)}`,
     ...(speaker.bio && { description: speaker.bio }),
-    ...(speaker.socials?.x && { sameAs: [speaker.socials.x, speaker.socials.linkedin].filter(Boolean) }),
+    ...(speaker.socials?.x && {
+      sameAs: [speaker.socials.x, speaker.socials.linkedin].filter(Boolean),
+    }),
   };
 
   return (
