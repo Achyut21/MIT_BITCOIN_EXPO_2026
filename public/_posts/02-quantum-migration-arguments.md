@@ -2,8 +2,10 @@
 title: "What Are People Arguing About With Quantum Migration?"
 slug: "quantum-migration-arguments"
 excerpt: "Even if Bitcoin gets better future-safe constructions, how does value actually move from old vulnerable forms into newer safer ones? The debate has three layers."
-date: "2026-03-10"
+date: "2026-03-17"
 number: 2
+tweetUrl: "https://x.com/JeremyRubin/status/2031097067041390823"
+publishDate: "2026-03-17T13:00:00Z"
 ---
 
 It is tempting to describe the post-quantum debate as a straight technical race: quantum computers get stronger, Bitcoin upgrades its cryptography, problem solved. The recent discussions do not support that simple picture. The sharper argument is about migration. Even if Bitcoin gets better future-safe constructions, how does value actually move from old vulnerable forms into newer safer ones? And what happens if the technical path arrives before the social one?

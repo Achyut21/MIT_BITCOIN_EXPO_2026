@@ -2,8 +2,10 @@
 title: "What Does BIP-360 Actually Change?"
 slug: "what-does-bip360-actually-change"
 excerpt: "BIP-360 isn't being pitched as 'Bitcoin is now quantum-safe.' It's a scaffold — a way to make later post-quantum spending paths more practical."
-date: "2026-03-09"
+date: "2026-03-16"
 number: 1
+tweetUrl: "https://x.com/apruden08/status/2032142647738179664"
+publishDate: "2026-03-16T19:00:00Z"
 ---
 
 Bitcoin's recent post-quantum discussion has finally moved out of the vague phase. For years, "quantum threat" talk mostly meant hand-waving: if large quantum computers arrive, exposed elliptic-curve keys could become vulnerable, so Bitcoin may eventually need a migration path. In the last two months, the conversation tightened around a more specific question: if Bitcoin wants a realistic upgrade path, what should be built first? [Bitcoin Magazine's recent overview of BIP-360](https://bitcoinmagazine.com/news/bitcoin-advances-toward-quantum-resistance) frames the answer as a preparatory structural change, while [Bitcoin Optech #395](https://bitcoinops.org/en/newsletters/2026/03/06/) and recent [Delving Bitcoin discussion](https://delvingbitcoin.org/t/op-cat-and-bitcoin-s-path-to-quantum-resistance/2207) make clear that the hard part is still migration.

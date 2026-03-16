@@ -1,0 +1,27 @@
+name: Scheduled Blog Publish
+
+on:
+  schedule:
+    - cron: "0 13 * * *"   # 9am ET (UTC-4)
+    - cron: "0 19 * * *"   # 3pm ET (UTC-4)
+  workflow_dispatch:        # trigger manually from GitHub Actions tab
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if past publish window
+        id: check_date
+        run: |
+          LAST_PUBLISH="2026-03-19T13:00:00Z"
+          NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          if [[ "$NOW" > "$LAST_PUBLISH" ]]; then
+            echo "All posts are live, skipping deploy"
+            echo "skip=true" >> $GITHUB_OUTPUT
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Trigger Vercel rebuild
+        if: steps.check_date.outputs.skip == 'false'
+        run: curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK }}

@@ -109,7 +109,7 @@ function MarqueeRow({
 
   return (
     <div
-      className="group/marquee relative flex overflow-hidden"
+      className="group/marquee relative flex overflow-hidden py-2"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >

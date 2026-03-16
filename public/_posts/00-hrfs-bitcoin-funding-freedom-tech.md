@@ -2,8 +2,10 @@
 title: "What Does HRF's Latest Bitcoin Funding Suggest About Freedom Tech?"
 slug: "hrfs-bitcoin-funding-freedom-tech"
 excerpt: "HRF's January grant announcement is worth reading as more than a roundup — it's a snapshot of where one influential institution thinks leverage actually exists."
-date: "2026-03-08"
+date: "2026-03-16"
 number: 0
+tweetUrl: "https://x.com/frankcorva/status/2032173069964624072"
+publishDate: "2026-03-16T13:00:00Z"
 ---
 
 It is easy to write vague essays about Bitcoin and freedom. It is harder, and more useful, to ask a narrower question: what kinds of Bitcoin-related projects are actually being funded by institutions that care about censorship resistance and human rights right now?

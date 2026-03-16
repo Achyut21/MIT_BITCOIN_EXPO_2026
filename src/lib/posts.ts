@@ -12,6 +12,8 @@ export interface Post {
   excerpt: string;
   date: string;
   number: number;
+  tweetUrl: string;
+  publishDate: string;
   content: string;
 }
 
@@ -21,6 +23,8 @@ export interface PostMeta {
   excerpt: string;
   date: string;
   number: number;
+  tweetUrl: string;
+  publishDate: string;
 }
 
 function parsePostFile(fileName: string): PostMeta {
@@ -33,6 +37,8 @@ function parsePostFile(fileName: string): PostMeta {
     excerpt: data.excerpt as string,
     date: data.date as string,
     number: data.number as number,
+    tweetUrl: (data.tweetUrl as string) ?? "",
+    publishDate: (data.publishDate as string) ?? (data.date as string),
   };
 }
 
@@ -66,6 +72,8 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
     excerpt: data.excerpt as string,
     date: data.date as string,
     number: data.number as number,
+    tweetUrl: (data.tweetUrl as string) ?? "",
+    publishDate: (data.publishDate as string) ?? (data.date as string),
     content: html,
   };
 }

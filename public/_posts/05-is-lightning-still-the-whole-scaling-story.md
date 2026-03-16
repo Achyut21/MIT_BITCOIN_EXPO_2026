@@ -2,8 +2,10 @@
 title: "Is Lightning Still the Whole Scaling Story?"
 slug: "is-lightning-still-the-whole-scaling-story"
 excerpt: "Lightning is still important. But recent sources suggest it's no longer sufficient — or the only answer worth taking seriously."
-date: "2026-03-13"
+date: "2026-03-18"
 number: 5
+tweetUrl: "https://x.com/david_seroy/status/2030863917543796817"
+publishDate: "2026-03-18T19:00:00Z"
 ---
 
 For a long time, "Bitcoin scaling" had a default answer: Lightning. That answer is still important, but recent sources suggest it is no longer sufficient. The discussion in early 2026 increasingly treats scaling as a family of approaches with different strengths: Lightning, Ark-style VTXO systems, bridge-heavy designs, covenant-assisted constructions, and other forms of liquidity organization.

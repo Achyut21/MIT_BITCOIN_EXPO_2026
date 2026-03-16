@@ -2,8 +2,10 @@
 title: "Ark as Channel Factory: What Problem Is It Trying to Solve?"
 slug: "ark-as-channel-factory"
 excerpt: "The most useful way to approach Ark isn't as 'the next scaling silver bullet.' It's as an answer to a recurring Bitcoin problem: liquidity coordination is expensive."
-date: "2026-03-12"
+date: "2026-03-18"
 number: 4
+tweetUrl: "https://x.com/david_seroy/status/2030863464600867120"
+publishDate: "2026-03-18T13:00:00Z"
 ---
 
 The most useful way to approach Ark may not be as "the next scaling silver bullet." Rather, it is an answer to a recurring Bitcoin problem: liquidity coordination is expensive, channel-by-channel management is clunky, and getting many users to share capital efficiently is hard.

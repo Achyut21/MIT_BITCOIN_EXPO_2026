@@ -2,8 +2,10 @@
 title: "Why Does BIP-110 Keep Turning Into a Bigger Fight About What Bitcoin Is For?"
 slug: "bip110-fight-about-what-bitcoin-is-for"
 excerpt: "People aren't just fighting over one anti-spam proposal. They're fighting over the meaning of Bitcoin itself."
-date: "2026-03-11"
+date: "2026-03-17"
 number: 3
+tweetUrl: "https://x.com/darosior/status/2031110203672862731"
+publishDate: "2026-03-17T19:00:00Z"
 ---
 
 Some Bitcoin debates stay local. BIP-110 has not. The reason is obvious once you read the recent arguments closely: people are not just fighting over one anti-spam proposal. They are fighting over the meaning of Bitcoin itself.

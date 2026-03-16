@@ -1,8 +1,9 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { getPostBySlug, getAllPostSlugs } from "@/lib/posts";
+import { TweetEmbed } from "@/components/sections/tweet-embed";
 import { ArrowLeft, Calendar } from "lucide-react";
 import type { Metadata } from "next";
 
@@ -37,7 +38,11 @@ export default async function BlogPostPage({ params }: Props) {
 
   if (!post) notFound();
 
-  const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
+  const now = new Date();
+  const isPublished = new Date(post.publishDate).getTime() <= now.getTime();
+  if (!isPublished) redirect("/blog");
+
+  const formattedDate = new Date(post.date + "T12:00:00").toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
@@ -69,6 +74,9 @@ export default async function BlogPostPage({ params }: Props) {
           <p className="text-muted text-lg leading-relaxed">{post.excerpt}</p>
           <div className="border-border mt-8 border-b" />
         </header>
+
+        {/* Featured tweet */}
+        <TweetEmbed tweetUrl={post.tweetUrl} />
 
         {/* Content */}
         <div className="prose-blog" dangerouslySetInnerHTML={{ __html: post.content }} />

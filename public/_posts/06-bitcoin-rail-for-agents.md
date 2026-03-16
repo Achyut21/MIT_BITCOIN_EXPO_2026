@@ -2,8 +2,10 @@
 title: "Can Bitcoin Become a Rail for Agents and Autonomous Software?"
 slug: "bitcoin-rail-for-agents"
 excerpt: "If agents or autonomous services need to pay for data, APIs, and compute on an open network, open payment rails may matter more than traditional account-based systems."
-date: "2026-03-14"
+date: "2026-03-19"
 number: 6
+tweetUrl: "https://x.com/callebtc/status/2028042563349774628"
+publishDate: "2026-03-19T13:00:00Z"
 ---
 
 If agents or autonomous services need to pay for data, APIs, compute, or other services on an open network, then open payment rails may matter more than traditional account-based systems. Bitcoin or Bitcoin-adjacent rails are being proposed as candidates because they are programmable enough at the edges, open enough to be composable, and not dependent on a centralized account issuer.
