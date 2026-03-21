@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, type Variants } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,35 +15,23 @@ const EVENT_DETAILS = {
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/speakers", label: "Speakers" },
   { href: "/schedule", label: "Schedule" },
+  { href: "/speakers", label: "Speakers" },
   { href: "/sponsors", label: "Sponsors" },
   { href: "/team", label: "Team" },
   { href: "/blog", label: "Blog" },
   { href: "/hackathon", label: "Hackathon" },
 ];
 
-// Animation variants for menu
 const menuContainerVariants: Variants = {
-  closed: {
-    opacity: 0,
-    scale: 0.96,
-    y: -8,
-    transition: { duration: 0.15, ease: "easeIn" },
-  },
-  open: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: { duration: 0.15, ease: "easeOut" },
-  },
+  closed: { opacity: 0, scale: 0.96, y: -8, transition: { duration: 0.15, ease: "easeIn" } },
+  open: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.15, ease: "easeOut" } },
 };
 
 function generateICS(): string {
   const start = "20260411T090000";
   const end = "20260412T180000";
-
-  const icsContent = [
+  return [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
     "PRODID:-//MIT Bitcoin Expo//EN",
@@ -56,22 +44,16 @@ function generateICS(): string {
     "END:VEVENT",
     "END:VCALENDAR",
   ].join("\r\n");
-
-  return icsContent;
 }
 
 function generateGoogleCalendarUrl(): string {
-  const start = "20260411T090000";
-  const end = "20260412T180000";
-
   const params = new URLSearchParams({
     action: "TEMPLATE",
     text: EVENT_DETAILS.title,
-    dates: `${start}/${end}`,
+    dates: "20260411T090000/20260412T180000",
     details: EVENT_DETAILS.description,
     location: EVENT_DETAILS.location,
   });
-
   return `https://calendar.google.com/calendar/render?${params.toString()}`;
 }
 
@@ -80,25 +62,22 @@ function AddToCalendarDropdown() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) setIsOpen(false);
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const handleDownloadICS = () => {
-    const icsContent = generateICS();
-    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+    const blob = new Blob([generateICS()], { type: "text/calendar;charset=utf-8" });
     const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "mit-bitcoin-expo-2026.ics";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "mit-bitcoin-expo-2026.ics";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
     URL.revokeObjectURL(url);
     setIsOpen(false);
   };
@@ -192,9 +171,8 @@ function MobileMenu({
         !menuRef.current.contains(target) &&
         toggleButtonRef.current &&
         !toggleButtonRef.current.contains(target)
-      ) {
+      )
         onClose();
-      }
     }
     if (isOpen) {
       document.addEventListener("mousedown", handleClickOutside);
@@ -215,7 +193,7 @@ function MobileMenu({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+            className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm"
           />
           <motion.div
             ref={menuRef}
@@ -223,7 +201,7 @@ function MobileMenu({
             initial="closed"
             animate="open"
             exit="closed"
-            className="fixed top-[5.5rem] right-4 z-50 w-64 md:hidden"
+            className="fixed top-[5.5rem] right-4 z-50 w-64"
           >
             <div className="bg-surface/95 border-border/50 overflow-hidden rounded-2xl border shadow-2xl shadow-black/50 backdrop-blur-xl">
               <nav className="p-3">
@@ -234,11 +212,7 @@ function MobileMenu({
                       key={link.href}
                       href={link.href}
                       onClick={onClose}
-                      className={`block rounded-xl px-4 py-3 text-[15px] font-medium transition-colors ${
-                        isActive
-                          ? "bg-background/90 text-foreground"
-                          : "text-muted hover:text-accent hover:bg-white/5"
-                      }`}
+                      className={`block rounded-xl px-4 py-3 text-[15px] font-medium transition-colors ${isActive ? "bg-background/90 text-foreground" : "text-muted hover:text-accent hover:bg-white/5"}`}
                     >
                       {link.label}
                     </Link>
@@ -274,8 +248,37 @@ function MobileMenu({
 
 export function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const pathname = usePathname();
   const mobileMenuToggleRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const logoRef = useRef<HTMLAnchorElement>(null);
+  const linksRef = useRef<HTMLDivElement>(null);
+  const actionsRef = useRef<HTMLDivElement>(null);
+
+  const checkOverflow = useCallback(() => {
+    const nav = navRef.current;
+    const logo = logoRef.current;
+    const links = linksRef.current;
+    const actions = actionsRef.current;
+    if (!nav || !logo || !links || !actions) return;
+    // 48px for inner padding + gaps between the three sections
+    const needed = logo.offsetWidth + links.offsetWidth + actions.offsetWidth + 48;
+    const collapsed = nav.offsetWidth < needed;
+    setIsCollapsed(collapsed);
+    if (!collapsed) setIsMobileMenuOpen(false);
+  }, []);
+
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+    const observer = new ResizeObserver(checkOverflow);
+    observer.observe(nav);
+    checkOverflow();
+    return () => observer.disconnect();
+  }, [checkOverflow]);
+
+  // Close mobile menu when switching to expanded layout — done inside checkOverflow to avoid cascading effect
 
   return (
     <>
@@ -285,8 +288,12 @@ export function Navbar() {
         transition={{ duration: 0.6, ease: "easeOut" }}
         className="fixed top-4 left-1/2 z-50 w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2"
       >
-        <nav className="bg-surface/60 border-border/50 flex items-center justify-between rounded-2xl border px-4 py-3 shadow-lg shadow-black/20 backdrop-blur-xl md:px-6 md:py-4">
-          <Link href="/" className="group flex items-center gap-3">
+        <nav
+          ref={navRef}
+          className="bg-surface/60 border-border/50 flex items-center justify-between rounded-2xl border px-4 py-3 shadow-lg shadow-black/20 backdrop-blur-xl md:px-6 md:py-4"
+        >
+          {/* Logo */}
+          <Link ref={logoRef} href="/" className="group flex shrink-0 items-center gap-3">
             <div className="relative h-10 w-10 overflow-hidden rounded-xl">
               <Image
                 src="/logo_2.webp"
@@ -302,7 +309,8 @@ export function Navbar() {
             </div>
           </Link>
 
-          <div className="hidden items-center gap-1 md:flex">
+          {/* Desktop links — hidden when collapsed, but always measured via invisible ref below */}
+          <div className={`items-center gap-1 ${isCollapsed ? "hidden" : "flex"}`}>
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -317,7 +325,24 @@ export function Navbar() {
             })}
           </div>
 
-          <div className="hidden items-center gap-4 md:flex">
+          {/* Invisible measurement div — always in DOM, never displayed, used by ResizeObserver */}
+          <div
+            ref={linksRef}
+            className="pointer-events-none invisible absolute flex items-center gap-1"
+            aria-hidden
+          >
+            {NAV_LINKS.map((link) => (
+              <span
+                key={link.href}
+                className="rounded-lg px-4 py-2 text-sm font-medium whitespace-nowrap"
+              >
+                {link.label}
+              </span>
+            ))}
+          </div>
+
+          {/* Desktop actions */}
+          <div ref={actionsRef} className={`items-center gap-4 ${isCollapsed ? "hidden" : "flex"}`}>
             <AddToCalendarDropdown />
             <Link
               href="https://www.eventbrite.com/e/mit-bitcoin-expo-2026-tickets-1984845280665"
@@ -337,7 +362,8 @@ export function Navbar() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-3 md:hidden">
+          {/* Hamburger — shown when collapsed */}
+          <div className={`items-center gap-3 ${isCollapsed ? "flex" : "hidden"}`}>
             <AddToCalendarDropdown />
             <button
               ref={mobileMenuToggleRef}
