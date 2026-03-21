@@ -92,7 +92,7 @@ function GoldSponsorCard({ sponsor, index }: { sponsor: Sponsor; index: number }
             alt={sponsor.name}
             width={400}
             height={120}
-            className="max-h-20 w-full scale-[1.6] object-contain transition-opacity duration-300 sm:max-h-28"
+            className="max-h-20 w-full scale-[1.2] object-contain transition-opacity duration-300 sm:max-h-28 sm:scale-[1.6]"
             onError={() => setImgError(true)}
           />
         )}

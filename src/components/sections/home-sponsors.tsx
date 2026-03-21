@@ -58,7 +58,7 @@ function GoldSponsorCard({ sponsor }: { sponsor: Sponsor }) {
             alt={sponsor.name}
             width={300}
             height={80}
-            className="max-h-14 w-full scale-[1.6] object-contain sm:max-h-16"
+            className="max-h-14 w-full scale-[1.2] object-contain sm:max-h-16 sm:scale-[1.6]"
             onError={() => setImgError(true)}
           />
         )}
