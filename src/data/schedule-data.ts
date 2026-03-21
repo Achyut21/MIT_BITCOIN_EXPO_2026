@@ -1,4 +1,11 @@
-export type SessionType = "keynote" | "talk" | "panel" | "break" | "logistics" | "award" | "dinner";
+export type SessionType =
+  | "keynote"
+  | "talk"
+  | "panel"
+  | "break"
+  | "logistics"
+  | "award"
+  | "workshop";
 
 export interface Session {
   id?: number;
@@ -6,10 +13,9 @@ export interface Session {
   end: string;
   type: SessionType;
   title: string;
-  confirmed?: boolean;
-  tbd?: boolean;
   presenters?: string;
   moderator?: string;
+  additionalProgramming?: boolean;
 }
 
 export interface ScheduleDay {
@@ -37,7 +43,7 @@ export const schedule: ScheduleDay[] = [
         start: "9:40 AM",
         end: "10:10 AM",
         type: "keynote",
-        title: "Keynote",
+        title: "Roya Mahboob — Freedom Activist",
         presenters: "Roya Mahboob",
       },
       {
@@ -46,7 +52,6 @@ export const schedule: ScheduleDay[] = [
         end: "10:40 AM",
         type: "talk",
         title: "Accelerating IBD with SwiftSync",
-        confirmed: true,
         presenters: "Rob Netzke",
       },
       {
@@ -54,7 +59,7 @@ export const schedule: ScheduleDay[] = [
         start: "10:40 AM",
         end: "11:10 AM",
         type: "talk",
-        title: "Bitchat and Cashu",
+        title: "Calle — Cashu & Bitchat Developer",
         presenters: "Calle",
       },
       { start: "11:10 AM", end: "11:20 AM", type: "break", title: "Break" },
@@ -63,7 +68,7 @@ export const schedule: ScheduleDay[] = [
         start: "11:20 AM",
         end: "11:50 AM",
         type: "talk",
-        title: "Quantum Attacks on Bitcoin and How to Prevent Them",
+        title: "Ethan Heilman — Bitcoin Security Researcher",
         presenters: "Ethan Heilman",
       },
       {
@@ -80,7 +85,6 @@ export const schedule: ScheduleDay[] = [
         end: "1:00 PM",
         type: "talk",
         title: "Transaction Introspection without Consensus Changes",
-        confirmed: true,
         presenters: "Robin Linus",
       },
       { start: "1:00 PM", end: "2:00 PM", type: "break", title: "Lunch Break" },
@@ -90,7 +94,6 @@ export const schedule: ScheduleDay[] = [
         end: "2:30 PM",
         type: "keynote",
         title: "Fireside Chat with Hester Peirce",
-        confirmed: true,
         presenters: "Hester Peirce",
         moderator: "Namnueng",
       },
@@ -100,7 +103,6 @@ export const schedule: ScheduleDay[] = [
         end: "3:00 PM",
         type: "talk",
         title: "More Efficient Garbled Circuits for Better BitVM Bridges",
-        confirmed: true,
         presenters: "Liam Eagen",
       },
       {
@@ -118,10 +120,9 @@ export const schedule: ScheduleDay[] = [
         end: "4:20 PM",
         type: "talk",
         title: "Free IBD with Proofless Utreexo",
-        confirmed: true,
         presenters: "Tadge Dryja",
       },
-      { id: 11, start: "4:20 PM", end: "4:50 PM", type: "talk", title: "Title TBD", tbd: true },
+      { id: 11, start: "4:20 PM", end: "4:50 PM", type: "talk", title: "TBA" },
       {
         id: 12,
         start: "4:50 PM",
@@ -131,6 +132,14 @@ export const schedule: ScheduleDay[] = [
         presenters: "Austin Federa, Muriel Médard",
       },
       { start: "5:30 PM", end: "5:35 PM", type: "logistics", title: "Closing Remarks" },
+      // Additional programming
+      {
+        start: "2:30 PM",
+        end: "4:30 PM",
+        type: "workshop",
+        title: "DCI Global Workshop",
+        additionalProgramming: true,
+      },
     ],
   },
   {
@@ -140,13 +149,13 @@ export const schedule: ScheduleDay[] = [
     sessions: [
       { start: "8:00 AM", end: "9:30 AM", type: "logistics", title: "Registration and Breakfast" },
       { start: "9:30 AM", end: "9:40 AM", type: "logistics", title: "Welcome" },
-      { id: 13, start: "9:40 AM", end: "10:10 AM", type: "keynote", title: "Keynote", tbd: true },
+      { id: 13, start: "9:40 AM", end: "10:10 AM", type: "keynote", title: "TBA" },
       {
         id: 14,
         start: "10:10 AM",
         end: "10:40 AM",
         type: "talk",
-        title: "Privacy",
+        title: "Aaron Feickert — Privacy Researcher",
         presenters: "Aaron Feickert",
       },
       {
@@ -154,7 +163,7 @@ export const schedule: ScheduleDay[] = [
         start: "10:40 AM",
         end: "11:10 AM",
         type: "talk",
-        title: "Rollups, Appchains, Shared Sequencers, and AVSs",
+        title: "Jeremy Rubin — Bitcoin Developer",
         presenters: "Jeremy Rubin",
       },
       { start: "11:10 AM", end: "11:20 AM", type: "break", title: "Break" },
@@ -171,7 +180,7 @@ export const schedule: ScheduleDay[] = [
         start: "12:00 PM",
         end: "12:30 PM",
         type: "talk",
-        title: "Iceberg",
+        title: "Nadav Kohen — Bitcoin/DLC Developer",
         presenters: "Nadav Kohen",
       },
       { start: "12:30 PM", end: "1:30 PM", type: "break", title: "Lunch Break" },
@@ -180,18 +189,10 @@ export const schedule: ScheduleDay[] = [
         start: "1:30 PM",
         end: "2:00 PM",
         type: "keynote",
-        title: "Keynote",
+        title: "Neha Narula — MIT DCI Director",
         presenters: "Neha Narula",
-        tbd: true,
       },
-      {
-        id: 19,
-        start: "2:00 PM",
-        end: "2:30 PM",
-        type: "talk",
-        title: "Sponsorship Slot",
-        tbd: true,
-      },
+      { id: 19, start: "2:00 PM", end: "2:30 PM", type: "talk", title: "TBA" },
       {
         id: 20,
         start: "2:30 PM",
@@ -208,23 +209,15 @@ export const schedule: ScheduleDay[] = [
         end: "3:50 PM",
         type: "talk",
         title: "Bitcoin PIPEs V2: Covenants and ZKPs on the Bitcoin L1 via Witness Encryption",
-        confirmed: true,
         presenters: "Misha Komarov",
       },
-      {
-        id: 22,
-        start: "3:50 PM",
-        end: "4:30 PM",
-        type: "panel",
-        title: "Sponsorship Slot",
-        tbd: true,
-      },
+      { id: 22, start: "3:50 PM", end: "4:30 PM", type: "panel", title: "TBA" },
       {
         id: 23,
         start: "4:30 PM",
         end: "4:50 PM",
         type: "talk",
-        title: "Bitcoin Adoption",
+        title: "Frank Corva — Bitcoin Journalist",
         presenters: "Frank Corva",
       },
       { start: "4:50 PM", end: "5:00 PM", type: "award", title: "Henoch Argaw Memorial Award" },

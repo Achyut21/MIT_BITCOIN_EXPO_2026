@@ -44,7 +44,7 @@ function GoldSponsorCard({ sponsor }: { sponsor: Sponsor }) {
         loop
         playsInline
         preload="metadata"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover blur-sm"
       >
         <source src="/hero-hype-bg.mp4" type="video/mp4" />
       </video>
@@ -58,7 +58,7 @@ function GoldSponsorCard({ sponsor }: { sponsor: Sponsor }) {
             alt={sponsor.name}
             width={300}
             height={80}
-            className="max-h-14 w-full object-contain sm:max-h-16"
+            className="max-h-14 w-full scale-[1.6] object-contain sm:max-h-16"
             onError={() => setImgError(true)}
           />
         )}
@@ -100,7 +100,10 @@ function SponsorLogo({ sponsor }: { sponsor: Sponsor }) {
           alt={sponsor.name}
           width={200}
           height={60}
-          className="max-h-8 w-full object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100 sm:max-h-10"
+          className={cn(
+            "max-h-8 w-full object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100 sm:max-h-10",
+            sponsor.logoSize === "lg" && "scale-[1.4]"
+          )}
           onError={() => setImgError(true)}
         />
       )}
