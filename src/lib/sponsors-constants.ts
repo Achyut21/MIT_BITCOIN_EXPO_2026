@@ -4,6 +4,7 @@ export type Sponsor = {
   url?: string;
   darkLogo?: boolean;
   tier?: "gold" | "silver" | "bronze";
+  logoSize?: "sm" | "md" | "lg";
 };
 
 export type SponsorYear = {
@@ -17,9 +18,8 @@ export const sponsorYears: SponsorYear[] = [
     sponsors: [
       {
         name: "Human Rights Foundation",
-        logo: "/2026Sponsors/HRF-Logo-2048x563.webp",
+        logo: "/2026Sponsors/HRF-Logo-White.webp",
         url: "https://hrf.org",
-        darkLogo: true,
         tier: "gold",
       },
       {
@@ -27,6 +27,14 @@ export const sponsorYears: SponsorYear[] = [
         logo: "/2026Sponsors/White Alpen Lockup.webp",
         url: "https://alpenlabs.io",
         tier: "bronze",
+      },
+      {
+        name: "Hydrax",
+        logo: "/2026Sponsors/hydrax.webp",
+        url: "https://hydrax.io",
+        darkLogo: true,
+        tier: "bronze",
+        logoSize: "lg",
       },
     ],
   },

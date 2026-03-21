@@ -119,7 +119,13 @@ export function Hero() {
           </motion.div>
 
           <motion.p variants={itemVariants} className="text-muted/60 mt-5 text-sm sm:text-base">
-            More information coming soon
+            Preliminary schedule is now live —{" "}
+            <a
+              href="/schedule"
+              className="text-accent/80 hover:text-accent underline underline-offset-2 transition-colors"
+            >
+              view the full agenda
+            </a>
           </motion.p>
         </motion.div>
 
