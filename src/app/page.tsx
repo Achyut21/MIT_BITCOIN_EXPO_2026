@@ -4,6 +4,7 @@ import { Hero } from "@/components/sections/hero";
 import { ArticleCard } from "@/components/sections/article-card";
 import { HomeBlogPreview } from "@/components/sections/home-blog-preview";
 import { SpeakerStrip } from "@/components/sections/speaker-strip";
+import { Schedule } from "@/components/sections/schedule";
 import { HomeSponsors } from "@/components/sections/home-sponsors";
 import { Countdown } from "@/components/sections/countdown";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -81,6 +82,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <SpeakerStrip />
+      <Schedule />
       <HomeSponsors />
       <HomeBlogPreview />
       <ArticleCard />
