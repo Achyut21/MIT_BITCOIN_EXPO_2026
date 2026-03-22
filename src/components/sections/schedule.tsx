@@ -139,15 +139,16 @@ function ScheduleList({ sessions }: { sessions: Session[] }) {
   );
 }
 
-export function Schedule() {
+export function Schedule({ hideHeader = false }: { hideHeader?: boolean }) {
   return (
-    <section id="schedule" className="relative overflow-hidden pt-16 pb-20">
+    <section id="schedule" className="relative overflow-hidden pt-8 pb-20">
       <div className="pointer-events-none absolute inset-0">
         <div className="bg-accent/[0.03] absolute top-1/2 left-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[180px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-6">
         {/* Header */}
+        {!hideHeader && (
         <div className="mb-10">
           <div className="mb-2 flex flex-wrap items-center gap-3">
             <p className="text-xs font-medium tracking-widest text-[#C0FF70] uppercase">Program</p>
@@ -167,6 +168,7 @@ export function Schedule() {
             Preliminary agenda — subject to change.
           </p>
         </div>
+        )}
 
         <Tabs defaultValue="saturday">
           <TabsList className="mb-6 h-auto w-full rounded-lg border border-[#292524] bg-[#1C1917] p-1 sm:w-auto">
