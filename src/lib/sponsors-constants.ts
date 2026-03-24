@@ -29,6 +29,20 @@ export const sponsorYears: SponsorYear[] = [
         tier: "bronze",
       },
       {
+        name: "Nunchuk",
+        logo: "/2026Sponsors/nunchuk.webp",
+        url: "https://nunchuk.io",
+        tier: "bronze",
+        logoSize: "lg",
+      },
+      {
+        name: "BTC++",
+        logo: "/2026Sponsors/btcplusplus.webp",
+        url: "https://btcplusplus.dev",
+        tier: "bronze",
+        logoSize: "lg",
+      },
+      {
         name: "Hydrax",
         logo: "/2026Sponsors/hydrax.webp",
         url: "https://hydrax.io",
