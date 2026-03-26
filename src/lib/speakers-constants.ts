@@ -110,7 +110,7 @@ export const currentSpeakers: Speaker[] = [
   {
     name: "Frank Corva",
     title: "Independent Bitcoin Journalist, New Renaissance Capital",
-    image: "",
+    image: "/2026Speakers/Frank Corva.webp",
     bio: "Frank is an independent Bitcoin journalist and podcast host who covers Bitcoin adoption around the world, particularly in Africa, Latin America and Southeast Asia. He formerly worked as the White House and political correspondent for Bitcoin Magazine.",
     topics: ["Bitcoin and Freedom Tech Doesn't Spread Itself — It Needs Advocates"],
     availability: "Full weekend",
@@ -175,7 +175,7 @@ export const currentSpeakers: Speaker[] = [
   },
   {
     name: "David Seroy",
-    title: "Ecosystem Lead, Alpen Labs",
+    title: "Ecosystem Lead @ Alpen Labs",
     image: "/2026Speakers/David Seroy.webp",
     bio: "Ecosystem Lead at Alpen Labs.",
     topics: ["Bitcoin credit markets"],
@@ -233,6 +233,46 @@ export const currentSpeakers: Speaker[] = [
       x: "https://x.com/Austin_Federa",
       linkedin: "https://www.linkedin.com/in/austin-federa",
     },
+  },
+  {
+    name: "Andrew Camilleri",
+    title: "CTO Ark Labs & BTCPay Server Core Contributor",
+    image: "/2026Speakers/Andrew Camilleri.webp",
+  },
+  {
+    name: "Calle",
+    title: "Open-source dev | Creator of Cashu",
+    image: "/2026Speakers/Calle.webp",
+  },
+  {
+    name: "Clara Shikhelman",
+    title: "Head of Research, Chaincode Labs",
+    image: "/2026Speakers/Clara Shikhelman.webp",
+  },
+  {
+    name: "Neha Narula",
+    title: "Director, MIT Digital Currency Initiative",
+    image: "/2026Speakers/Neha Narula.webp",
+  },
+  {
+    name: "Robert Netzke",
+    title: "Software Engineer, 2140",
+    image: "/2026Speakers/Robert Netzke.webp",
+  },
+  {
+    name: "Tadge Dryja",
+    title: "Lightning Network Developer",
+    image: "/2026Speakers/Tadge Dryja.webp",
+  },
+  {
+    name: "Ava Chow",
+    title: "Bitcoin Core Maintainer; Localhost Researcher",
+    image: "",
+  },
+  {
+    name: "Ekrem Bal",
+    title: "Co-founder & Chief Scientist, Citrea",
+    image: "/2026Speakers/Ekrem BAL.webp",
   },
 ];
 
