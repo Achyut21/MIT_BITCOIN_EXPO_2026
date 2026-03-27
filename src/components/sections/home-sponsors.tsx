@@ -152,7 +152,7 @@ export function HomeSponsors() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="max-w-2xl space-y-4"
+          className="space-y-4"
         >
           {gold.map((sponsor) => (
             <GoldSponsorCard key={sponsor.name} sponsor={sponsor} />
