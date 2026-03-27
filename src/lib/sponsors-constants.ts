@@ -3,7 +3,7 @@ export type Sponsor = {
   logo: string;
   url?: string;
   darkLogo?: boolean;
-  tier?: "gold" | "silver" | "bronze";
+  tier?: "gold" | "silver" | "bronze" | "community";
   logoSize?: "sm" | "md" | "lg";
 };
 
@@ -75,6 +75,12 @@ export const sponsorYears: SponsorYear[] = [
         url: "https://fidelity.com",
         tier: "bronze",
         logoSize: "lg",
+      },
+      {
+        name: "Allium",
+        logo: "/2026Sponsors/allium.webp",
+        url: "https://allium.so",
+        tier: "community",
       },
     ],
   },

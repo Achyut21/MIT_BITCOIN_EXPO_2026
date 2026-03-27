@@ -135,6 +135,7 @@ function SponsorLogo({ sponsor, index }: { sponsor: Sponsor; index: number }) {
         "transition-all duration-300",
         tier === "silver" && "px-5 py-8 sm:px-10 sm:py-12",
         tier === "bronze" && "px-4 py-6 sm:px-6 sm:py-8",
+        tier === "community" && "px-3 py-4 sm:px-5 sm:py-6",
         sponsor.darkLogo
           ? "border-border/60 hover:border-accent/30 bg-white/90 hover:bg-white"
           : "border-border bg-surface/50 hover:bg-surface hover:border-accent/40"
@@ -153,13 +154,15 @@ function SponsorLogo({ sponsor, index }: { sponsor: Sponsor; index: number }) {
         <Image
           src={sponsor.logo}
           alt={sponsor.name}
-          width={tier === "silver" ? 220 : 160}
-          height={tier === "silver" ? 80 : 60}
+          width={tier === "silver" ? 220 : tier === "community" ? 120 : 160}
+          height={tier === "silver" ? 80 : tier === "community" ? 40 : 60}
           className={cn(
             "w-full object-contain opacity-90 transition-opacity duration-300 group-hover:opacity-100",
             tier === "silver" && "max-h-12 sm:max-h-16",
             tier === "bronze" && "max-h-8 sm:max-h-10",
-            tier === "bronze" && sponsor.logoSize === "lg" && "scale-[1.4]"
+            tier === "bronze" && sponsor.logoSize === "lg" && "scale-[1.4]",
+            tier === "community" && "max-h-6 sm:max-h-8",
+            tier === "community" && sponsor.logoSize === "lg" && "scale-[1.4]"
           )}
           onError={() => setImgError(true)}
         />
@@ -260,6 +263,7 @@ export default function SponsorsPage() {
                 const gold = yearGroup.sponsors.filter((s) => s.tier === "gold");
                 const silver = yearGroup.sponsors.filter((s) => !s.tier || s.tier === "silver");
                 const bronze = yearGroup.sponsors.filter((s) => s.tier === "bronze");
+                const community = yearGroup.sponsors.filter((s) => s.tier === "community");
                 let idx = 0;
 
                 return (
@@ -288,6 +292,18 @@ export default function SponsorsPage() {
                         {bronze.map((s) => (
                           <SponsorLogo key={s.name} sponsor={s} index={idx++} />
                         ))}
+                      </div>
+                    )}
+
+                    {/* Community — 2-col on mobile, 5-col on lg */}
+                    {community.length > 0 && (
+                      <div>
+                        <p className="mb-3 text-xs font-medium tracking-widest text-[#78716C] uppercase">Community</p>
+                        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-5">
+                          {community.map((s) => (
+                            <SponsorLogo key={s.name} sponsor={s} index={idx++} />
+                          ))}
+                        </div>
                       </div>
                     )}
                   </div>
