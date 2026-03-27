@@ -56,6 +56,26 @@ export const sponsorYears: SponsorYear[] = [
         tier: "bronze",
         logoSize: "lg",
       },
+      {
+        name: "Anchorage Digital",
+        logo: "/2026Sponsors/Anchorage Digital.webp",
+        url: "https://anchorage.com",
+        tier: "bronze",
+      },
+      {
+        name: "Lightning Labs",
+        logo: "/2026Sponsors/Lightning Labs.webp",
+        url: "https://lightning.engineering",
+        tier: "bronze",
+        logoSize: "lg",
+      },
+      {
+        name: "Fidelity",
+        logo: "/2026Sponsors/Fidelity.webp",
+        url: "https://fidelity.com",
+        tier: "bronze",
+        logoSize: "lg",
+      },
     ],
   },
   {
