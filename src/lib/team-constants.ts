@@ -29,6 +29,7 @@ const TEAM_IMAGES = {
   thomaz: "/team/thomaz.webp",
   manish: "/team/manish.webp",
   frank: "/team/frank.webp",
+  julie: "/team/julie.webp",
 };
 
 // Linked list of team categories and their members
@@ -175,7 +176,7 @@ export const teamCategories: TeamCategory[] = [
         name: "Julie",
         team: "Marketing",
         role: "Co-Chair(Lead)",
-        image: "",
+        image: TEAM_IMAGES.julie,
         linkedin: "#",
       },
       {
