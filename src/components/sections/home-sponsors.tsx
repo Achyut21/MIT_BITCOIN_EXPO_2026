@@ -67,7 +67,7 @@ function GoldSponsorCard({ sponsor }: { sponsor: Sponsor }) {
   );
 }
 
-function SponsorLogo({ sponsor }: { sponsor: Sponsor }) {
+function SponsorLogo({ sponsor, community = false }: { sponsor: Sponsor; community?: boolean }) {
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -77,7 +77,7 @@ function SponsorLogo({ sponsor }: { sponsor: Sponsor }) {
       rel="noopener noreferrer"
       className={cn(
         "group flex items-center justify-center rounded-xl border",
-        "px-4 py-5 sm:px-6 sm:py-6",
+        community ? "px-3 py-3" : "px-4 py-5 sm:px-6 sm:py-6",
         "transition-all duration-300",
         sponsor.darkLogo
           ? "border-border/60 hover:border-accent/30 bg-white/90 hover:bg-white"
@@ -101,8 +101,9 @@ function SponsorLogo({ sponsor }: { sponsor: Sponsor }) {
           width={200}
           height={60}
           className={cn(
-            "max-h-8 w-full object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100 sm:max-h-10",
-            sponsor.logoSize === "lg" && "scale-[1.4]"
+            "w-full object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100",
+            community ? "max-h-6" : "max-h-8 sm:max-h-10",
+            !community && sponsor.logoSize === "lg" && "scale-[1.4]"
           )}
           onError={() => setImgError(true)}
         />
@@ -115,7 +116,8 @@ export function HomeSponsors() {
   if (sponsors2026.length === 0) return null;
 
   const gold = sponsors2026.filter((s) => s.tier === "gold");
-  const others = sponsors2026.filter((s) => s.tier !== "gold");
+  const others = sponsors2026.filter((s) => s.tier !== "gold" && s.tier !== "community");
+  const community = sponsors2026.filter((s) => s.tier === "community");
 
   return (
     <section className="px-6 py-12">
@@ -163,6 +165,17 @@ export function HomeSponsors() {
               {others.map((sponsor) => (
                 <SponsorLogo key={sponsor.name} sponsor={sponsor} />
               ))}
+            </div>
+          )}
+
+          {community.length > 0 && (
+            <div>
+              <p className="mb-2 px-1 text-xs font-medium tracking-widest text-[#78716C] uppercase">Community</p>
+              <div className="grid grid-cols-3 gap-3">
+                {community.map((sponsor) => (
+                  <SponsorLogo key={sponsor.name} sponsor={sponsor} community />
+                ))}
+              </div>
             </div>
           )}
         </motion.div>
