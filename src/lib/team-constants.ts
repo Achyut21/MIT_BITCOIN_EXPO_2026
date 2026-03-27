@@ -173,7 +173,7 @@ export const teamCategories: TeamCategory[] = [
     name: "Marketing",
     members: [
       {
-        name: "Julie",
+        name: "Juli Serrano",
         team: "Marketing",
         role: "Co-Chair(Lead)",
         image: TEAM_IMAGES.julie,
