@@ -177,7 +177,7 @@ export const teamCategories: TeamCategory[] = [
         team: "Marketing",
         role: "Co-Chair(Lead)",
         image: TEAM_IMAGES.julie,
-        linkedin: "#",
+        linkedin: "https://www.linkedin.com/in/juliethserrano",
       },
       {
         name: "Yi Liu",
