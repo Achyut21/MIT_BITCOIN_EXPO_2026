@@ -3,7 +3,8 @@ export type Sponsor = {
   logo: string;
   url?: string;
   darkLogo?: boolean;
-  tier?: "gold" | "silver" | "bronze";
+  tier?: "gold" | "silver" | "bronze" | "community";
+  logoSize?: "sm" | "md" | "lg";
 };
 
 export type SponsorYear = {
@@ -17,9 +18,8 @@ export const sponsorYears: SponsorYear[] = [
     sponsors: [
       {
         name: "Human Rights Foundation",
-        logo: "/2026Sponsors/HRF-Logo-2048x563.webp",
+        logo: "/2026Sponsors/HRF-Logo-White.webp",
         url: "https://hrf.org",
-        darkLogo: true,
         tier: "gold",
       },
       {
@@ -27,6 +27,60 @@ export const sponsorYears: SponsorYear[] = [
         logo: "/2026Sponsors/White Alpen Lockup.webp",
         url: "https://alpenlabs.io",
         tier: "bronze",
+      },
+      {
+        name: "Nunchuk",
+        logo: "/2026Sponsors/nunchuk.webp",
+        url: "https://nunchuk.io",
+        tier: "bronze",
+        logoSize: "lg",
+      },
+      {
+        name: "BTC++",
+        logo: "/2026Sponsors/btcplusplus.webp",
+        url: "https://btcplusplus.dev",
+        tier: "bronze",
+        logoSize: "lg",
+      },
+      {
+        name: "Cake Wallet",
+        logo: "/2026Sponsors/cake-wallet.webp",
+        url: "https://cakewallet.com",
+        tier: "bronze",
+      },
+      {
+        name: "Hydrax",
+        logo: "/2026Sponsors/hydrax.webp",
+        url: "https://hydrax.io",
+        darkLogo: true,
+        tier: "bronze",
+        logoSize: "lg",
+      },
+      {
+        name: "Anchorage Digital",
+        logo: "/2026Sponsors/Anchorage Digital.webp",
+        url: "https://anchorage.com",
+        tier: "bronze",
+      },
+      {
+        name: "Lightning Labs",
+        logo: "/2026Sponsors/Lightning Labs.webp",
+        url: "https://lightning.engineering",
+        tier: "bronze",
+        logoSize: "lg",
+      },
+      {
+        name: "Fidelity",
+        logo: "/2026Sponsors/Fidelity.webp",
+        url: "https://fidelity.com",
+        tier: "bronze",
+        logoSize: "lg",
+      },
+      {
+        name: "Allium",
+        logo: "/2026Sponsors/allium.webp",
+        url: "https://allium.so",
+        tier: "community",
       },
     ],
   },

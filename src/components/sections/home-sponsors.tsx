@@ -36,7 +36,7 @@ function GoldSponsorCard({ sponsor }: { sponsor: Sponsor }) {
       href={sponsor.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group relative block overflow-hidden rounded-xl border border-border hover:border-accent/50 transition-all duration-300"
+      className="group border-border hover:border-accent/50 relative block overflow-hidden rounded-xl border transition-all duration-300"
     >
       <video
         ref={videoRef}
@@ -44,7 +44,7 @@ function GoldSponsorCard({ sponsor }: { sponsor: Sponsor }) {
         loop
         playsInline
         preload="metadata"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover blur-sm"
       >
         <source src="/hero-hype-bg.mp4" type="video/mp4" />
       </video>
@@ -58,7 +58,7 @@ function GoldSponsorCard({ sponsor }: { sponsor: Sponsor }) {
             alt={sponsor.name}
             width={300}
             height={80}
-            className="w-full max-h-14 object-contain sm:max-h-16"
+            className="max-h-14 w-full scale-[1.2] object-contain sm:max-h-16 sm:scale-[1.6]"
             onError={() => setImgError(true)}
           />
         )}
@@ -67,7 +67,7 @@ function GoldSponsorCard({ sponsor }: { sponsor: Sponsor }) {
   );
 }
 
-function SponsorLogo({ sponsor }: { sponsor: Sponsor }) {
+function SponsorLogo({ sponsor, community = false }: { sponsor: Sponsor; community?: boolean }) {
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -77,16 +77,21 @@ function SponsorLogo({ sponsor }: { sponsor: Sponsor }) {
       rel="noopener noreferrer"
       className={cn(
         "group flex items-center justify-center rounded-xl border",
-        "px-4 py-5 sm:px-6 sm:py-6",
+        community ? "px-3 py-3" : "px-4 py-5 sm:px-6 sm:py-6",
         "transition-all duration-300",
         sponsor.darkLogo
-          ? "border-border/60 bg-white/90 hover:bg-white hover:border-accent/30"
+          ? "border-border/60 hover:border-accent/30 bg-white/90 hover:bg-white"
           : "border-border bg-surface/50 hover:bg-surface hover:border-accent/40",
-        "hover:shadow-lg hover:shadow-accent/5"
+        "hover:shadow-accent/5 hover:shadow-lg"
       )}
     >
       {imgError ? (
-        <span className={cn("text-sm font-semibold", sponsor.darkLogo ? "text-stone-800" : "text-muted")}>
+        <span
+          className={cn(
+            "text-sm font-semibold",
+            sponsor.darkLogo ? "text-stone-800" : "text-muted"
+          )}
+        >
           {sponsor.name}
         </span>
       ) : (
@@ -95,7 +100,11 @@ function SponsorLogo({ sponsor }: { sponsor: Sponsor }) {
           alt={sponsor.name}
           width={200}
           height={60}
-          className="w-full max-h-8 object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100 sm:max-h-10"
+          className={cn(
+            "w-full object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100",
+            community ? "max-h-6" : "max-h-8 sm:max-h-10",
+            !community && sponsor.logoSize === "lg" && "scale-[1.4]"
+          )}
           onError={() => setImgError(true)}
         />
       )}
@@ -107,11 +116,12 @@ export function HomeSponsors() {
   if (sponsors2026.length === 0) return null;
 
   const gold = sponsors2026.filter((s) => s.tier === "gold");
-  const others = sponsors2026.filter((s) => s.tier !== "gold");
+  const others = sponsors2026.filter((s) => s.tier !== "gold" && s.tier !== "community");
+  const community = sponsors2026.filter((s) => s.tier === "community");
 
   return (
     <section className="px-6 py-12">
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -120,8 +130,8 @@ export function HomeSponsors() {
           className="mb-6 flex items-end justify-between"
         >
           <div>
-            <h2 className="text-foreground text-lg font-bold sm:text-xl">2026 Sponsors</h2>
-            <div className="bg-accent mt-1.5 h-0.5 w-10 rounded-full" />
+            <h2 className="text-foreground text-2xl font-bold sm:text-3xl">2026 Sponsors</h2>
+            <div className="bg-accent mt-2 h-1 w-16 rounded-full" />
           </div>
           <Link
             href="/sponsors"
@@ -155,6 +165,17 @@ export function HomeSponsors() {
               {others.map((sponsor) => (
                 <SponsorLogo key={sponsor.name} sponsor={sponsor} />
               ))}
+            </div>
+          )}
+
+          {community.length > 0 && (
+            <div>
+              <p className="mb-2 px-1 text-xs font-medium tracking-widest text-[#78716C] uppercase">Community</p>
+              <div className="grid grid-cols-3 gap-3">
+                {community.map((sponsor) => (
+                  <SponsorLogo key={sponsor.name} sponsor={sponsor} community />
+                ))}
+              </div>
             </div>
           )}
         </motion.div>

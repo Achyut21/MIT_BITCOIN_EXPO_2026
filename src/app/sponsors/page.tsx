@@ -65,7 +65,7 @@ function GoldSponsorCard({ sponsor, index }: { sponsor: Sponsor; index: number }
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-      className="group relative overflow-hidden rounded-2xl border border-border hover:border-accent/50 transition-all duration-300"
+      className="group border-border hover:border-accent/50 relative overflow-hidden rounded-2xl border transition-all duration-300"
     >
       {/* Background Video */}
       <video
@@ -74,7 +74,7 @@ function GoldSponsorCard({ sponsor, index }: { sponsor: Sponsor; index: number }
         loop
         playsInline
         preload="metadata"
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-700 group-hover:opacity-50"
+        className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-100 blur-sm transition-opacity duration-700 group-hover:opacity-50"
       >
         <source src="/hero-hype-bg.mp4" type="video/mp4" />
       </video>
@@ -92,7 +92,7 @@ function GoldSponsorCard({ sponsor, index }: { sponsor: Sponsor; index: number }
             alt={sponsor.name}
             width={400}
             height={120}
-            className="w-full max-h-20 object-contain transition-opacity duration-300 sm:max-h-28"
+            className="max-h-20 w-full scale-[1.2] object-contain transition-opacity duration-300 sm:max-h-28 sm:scale-[1.6]"
             onError={() => setImgError(true)}
           />
         )}
@@ -131,27 +131,38 @@ function SponsorLogo({ sponsor, index }: { sponsor: Sponsor; index: number }) {
       className={cn(
         "group relative flex items-center justify-center",
         "rounded-2xl border",
-        "hover:shadow-lg hover:shadow-accent/5",
+        "hover:shadow-accent/5 hover:shadow-lg",
         "transition-all duration-300",
         tier === "silver" && "px-5 py-8 sm:px-10 sm:py-12",
         tier === "bronze" && "px-4 py-6 sm:px-6 sm:py-8",
+        tier === "community" && "px-3 py-4 sm:px-5 sm:py-6",
         sponsor.darkLogo
-          ? "border-border/60 bg-white/90 hover:bg-white hover:border-accent/30"
+          ? "border-border/60 hover:border-accent/30 bg-white/90 hover:bg-white"
           : "border-border bg-surface/50 hover:bg-surface hover:border-accent/40"
       )}
     >
       {imgError ? (
-        <span className={cn("text-lg font-semibold", sponsor.darkLogo ? "text-stone-800" : "text-muted")}>{sponsor.name}</span>
+        <span
+          className={cn(
+            "text-lg font-semibold",
+            sponsor.darkLogo ? "text-stone-800" : "text-muted"
+          )}
+        >
+          {sponsor.name}
+        </span>
       ) : (
         <Image
           src={sponsor.logo}
           alt={sponsor.name}
-          width={tier === "silver" ? 220 : 160}
-          height={tier === "silver" ? 80 : 60}
+          width={tier === "silver" ? 220 : tier === "community" ? 120 : 160}
+          height={tier === "silver" ? 80 : tier === "community" ? 40 : 60}
           className={cn(
             "w-full object-contain opacity-90 transition-opacity duration-300 group-hover:opacity-100",
             tier === "silver" && "max-h-12 sm:max-h-16",
-            tier === "bronze" && "max-h-8 sm:max-h-10"
+            tier === "bronze" && "max-h-8 sm:max-h-10",
+            tier === "bronze" && sponsor.logoSize === "lg" && "scale-[1.4]",
+            tier === "community" && "max-h-6 sm:max-h-8",
+            tier === "community" && sponsor.logoSize === "lg" && "scale-[1.4]"
           )}
           onError={() => setImgError(true)}
         />
@@ -252,6 +263,7 @@ export default function SponsorsPage() {
                 const gold = yearGroup.sponsors.filter((s) => s.tier === "gold");
                 const silver = yearGroup.sponsors.filter((s) => !s.tier || s.tier === "silver");
                 const bronze = yearGroup.sponsors.filter((s) => s.tier === "bronze");
+                const community = yearGroup.sponsors.filter((s) => s.tier === "community");
                 let idx = 0;
 
                 return (
@@ -282,6 +294,18 @@ export default function SponsorsPage() {
                         ))}
                       </div>
                     )}
+
+                    {/* Community — 2-col on mobile, 5-col on lg */}
+                    {community.length > 0 && (
+                      <div>
+                        <p className="mb-3 text-xs font-medium tracking-widest text-[#78716C] uppercase">Community</p>
+                        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-5">
+                          {community.map((s) => (
+                            <SponsorLogo key={s.name} sponsor={s} index={idx++} />
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 );
               })()}
@@ -300,11 +324,10 @@ export default function SponsorsPage() {
             transition={{ duration: 0.5 }}
             className="border-border bg-surface/50 rounded-2xl border p-10 sm:p-14"
           >
-            <h3 className="text-foreground text-xl font-bold sm:text-2xl">
-              Become a Sponsor
-            </h3>
+            <h3 className="text-foreground text-xl font-bold sm:text-2xl">Become a Sponsor</h3>
             <p className="text-muted mt-3 text-sm sm:text-base">
-              Support the Bitcoin ecosystem and connect with developers, researchers, and builders at MIT.
+              Support the Bitcoin ecosystem and connect with developers, researchers, and builders
+              at MIT.
             </p>
             <a
               href="mailto:info-mitbitcoinexpo@googlegroups.com?subject=Sponsorship%20Inquiry"

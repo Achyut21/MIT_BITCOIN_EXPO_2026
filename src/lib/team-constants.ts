@@ -30,6 +30,7 @@ const TEAM_IMAGES = {
   manish: "/team/manish.webp",
   frank: "/team/frank.webp",
   hao: "/team/hao.webp"
+  julie: "/team/julie.webp",
 };
 
 // Linked list of team categories and their members
@@ -77,25 +78,24 @@ export const teamCategories: TeamCategory[] = [
         image: TEAM_IMAGES.nicole,
         linkedin: LinkedInLink.nicole,
       },
-
     ],
   },
   {
     name: "Content",
     members: [
       {
-        name: "Manish",
-        team: "Content",
-        role: "Co-Chair",
-        image: TEAM_IMAGES.manish,
-        linkedin: LinkedInLink.manish,
-      },
-      {
         name: "Cameron",
         team: "Content",
         role: "Co-Chair (Lead)",
         image: TEAM_IMAGES.cameron,
         linkedin: LinkedInLink.cameron,
+      },
+      {
+        name: "Manish",
+        team: "Content",
+        role: "Senior Advisor",
+        image: TEAM_IMAGES.manish,
+        linkedin: LinkedInLink.manish,
       },
       {
         name: "Adam",
@@ -176,11 +176,11 @@ export const teamCategories: TeamCategory[] = [
     name: "Marketing",
     members: [
       {
-        name: "Julie",
+        name: "Juli Serrano",
         team: "Marketing",
         role: "Co-Chair(Lead)",
-        image: "",
-        linkedin: "#",
+        image: TEAM_IMAGES.julie,
+        linkedin: "https://www.linkedin.com/in/juliethserrano",
       },
       {
         name: "Yi Liu",

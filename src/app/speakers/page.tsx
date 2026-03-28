@@ -6,7 +6,12 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { Background } from "@/components/animations/background";
 import { SpeakerCard } from "@/components/sections/speaker-card";
-import { currentSpeakers, previousSpeakers, pastSpeakers, generateSlug } from "@/lib/speakers-constants";
+import {
+  currentSpeakers,
+  previousSpeakers,
+  pastSpeakers,
+  generateSlug,
+} from "@/lib/speakers-constants";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },

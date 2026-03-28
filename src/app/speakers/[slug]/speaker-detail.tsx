@@ -99,9 +99,7 @@ export function SpeakerDetail({ speaker }: { speaker: Speaker }) {
               <h1 className="text-foreground text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
                 {speaker.name}
               </h1>
-              <p className="text-accent mt-1.5 text-base font-medium sm:text-lg">
-                {speaker.title}
-              </p>
+              <p className="text-accent mt-1.5 text-base font-medium sm:text-lg">{speaker.title}</p>
 
               {/* Social icons */}
               {speaker.socials && (
@@ -139,9 +137,7 @@ export function SpeakerDetail({ speaker }: { speaker: Speaker }) {
               {speaker.bio && (
                 <>
                   <Separator className="bg-accent/20 my-6" />
-                  <p className="text-muted text-sm leading-relaxed sm:text-base">
-                    {speaker.bio}
-                  </p>
+                  <p className="text-muted text-sm leading-relaxed sm:text-base">{speaker.bio}</p>
                 </>
               )}
 
@@ -149,7 +145,7 @@ export function SpeakerDetail({ speaker }: { speaker: Speaker }) {
               {speaker.topics && speaker.topics.length > 0 && (
                 <>
                   <Separator className="bg-accent/20 my-6" />
-                  <h2 className="text-foreground mb-3 text-xs font-semibold uppercase tracking-wider">
+                  <h2 className="text-foreground mb-3 text-xs font-semibold tracking-wider uppercase">
                     Speaking Topics
                   </h2>
                   <ul className="space-y-2.5">

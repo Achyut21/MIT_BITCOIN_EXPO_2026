@@ -101,7 +101,7 @@ export function Hero() {
               Hackathon
             </Link>
             <Link
-              href="https://engage.mit.edu/mitbtc/rsvp_boot?id=916970"
+              href="https://www.eventbrite.com/e/mit-bitcoin-expo-2026-tickets-1984845280665"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-accent text-accent-foreground hover:bg-accent/90 flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-medium transition-colors"
@@ -119,7 +119,13 @@ export function Hero() {
           </motion.div>
 
           <motion.p variants={itemVariants} className="text-muted/60 mt-5 text-sm sm:text-base">
-            More information coming soon
+            Preliminary schedule is now live —{" "}
+            <a
+              href="/schedule"
+              className="text-accent/80 hover:text-accent underline underline-offset-2 transition-colors"
+            >
+              view the full agenda
+            </a>
           </motion.p>
         </motion.div>
 
