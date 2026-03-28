@@ -67,7 +67,7 @@ function GoldSponsorCard({ sponsor }: { sponsor: Sponsor }) {
   );
 }
 
-function SponsorLogo({ sponsor, community = false }: { sponsor: Sponsor; community?: boolean }) {
+function SponsorLogo({ sponsor, community = false, silver = false }: { sponsor: Sponsor; community?: boolean; silver?: boolean }) {
   const [imgError, setImgError] = useState(false);
 
   return (
@@ -77,7 +77,7 @@ function SponsorLogo({ sponsor, community = false }: { sponsor: Sponsor; communi
       rel="noopener noreferrer"
       className={cn(
         "group flex items-center justify-center rounded-xl border",
-        community ? "px-3 py-3" : "px-4 py-5 sm:px-6 sm:py-6",
+        community ? "px-3 py-3" : silver ? "px-5 py-7 sm:px-8 sm:py-9" : "px-4 py-5 sm:px-6 sm:py-6",
         "transition-all duration-300",
         sponsor.darkLogo
           ? "border-border/60 hover:border-accent/30 bg-white/90 hover:bg-white"
@@ -102,7 +102,7 @@ function SponsorLogo({ sponsor, community = false }: { sponsor: Sponsor; communi
           height={60}
           className={cn(
             "w-full object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100",
-            community ? "max-h-6" : "max-h-8 sm:max-h-10",
+            community ? "max-h-6" : silver ? "max-h-10 sm:max-h-14" : "max-h-8 sm:max-h-10",
             !community && sponsor.logoSize === "lg" && "scale-[1.4]"
           )}
           onError={() => setImgError(true)}
@@ -116,7 +116,8 @@ export function HomeSponsors() {
   if (sponsors2026.length === 0) return null;
 
   const gold = sponsors2026.filter((s) => s.tier === "gold");
-  const others = sponsors2026.filter((s) => s.tier !== "gold" && s.tier !== "community");
+  const silver = sponsors2026.filter((s) => s.tier === "silver");
+  const bronze = sponsors2026.filter((s) => s.tier === "bronze");
   const community = sponsors2026.filter((s) => s.tier === "community");
 
   return (
@@ -160,9 +161,17 @@ export function HomeSponsors() {
             <GoldSponsorCard key={sponsor.name} sponsor={sponsor} />
           ))}
 
-          {others.length > 0 && (
+          {silver.length > 0 && (
+            <div className="w-3/4 sm:w-1/2">
+              {silver.map((sponsor) => (
+                <SponsorLogo key={sponsor.name} sponsor={sponsor} silver />
+              ))}
+            </div>
+          )}
+
+          {bronze.length > 0 && (
             <div className="grid grid-cols-2 gap-4">
-              {others.map((sponsor) => (
+              {bronze.map((sponsor) => (
                 <SponsorLogo key={sponsor.name} sponsor={sponsor} />
               ))}
             </div>

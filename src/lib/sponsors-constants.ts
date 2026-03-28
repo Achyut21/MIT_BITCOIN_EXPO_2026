@@ -46,7 +46,7 @@ export const sponsorYears: SponsorYear[] = [
         name: "Cake Wallet",
         logo: "/2026Sponsors/cake-wallet.webp",
         url: "https://cakewallet.com",
-        tier: "bronze",
+        tier: "silver",
       },
       {
         name: "Hydrax",
