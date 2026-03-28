@@ -13,11 +13,11 @@ export type TeamCategory = {
 
 // Real images from mitbtcexpo.org
 const TEAM_IMAGES = {
-  ben: "https://www.mitbtcexpo.org/assets/img/team/Ben.jpeg",
+  ben: "/team/ben.webp",
   achyut: "/team/achyut-katiyar.webp",
   arul: "/team/arul.webp",
   yi: "/team/yi.webp",
-  rojina: "/team/rojina.webp",
+  rojina: "/team/rojina.webp",  
   carys: "/team/Carys.webp",
   michelle: "/team/michelle.webp",
   thomas: "/team/tom.webp",
@@ -29,7 +29,8 @@ const TEAM_IMAGES = {
   thomaz: "/team/thomaz.webp",
   manish: "/team/manish.webp",
   frank: "/team/frank.webp",
-  julie: "/team/julie.webp",
+  hao: "/team/hao.webp",
+  julie: "/team/julie.webp"
 };
 
 // Linked list of team categories and their members
@@ -48,6 +49,8 @@ const LinkedInLink = {
   nicole: "https://www.linkedin.com/in/nicole-wu-47b317109/",
   thomaz: "https://www.linkedin.com/in/luiz-thomaz-5023977/",
   manish: "https://www.linkedin.com/in/manish-kumar-68810326a/",
+  hao: "https://www.linkedin.com/in/weehaong/",
+  ben: "https://www.linkedin.com/in/rosenbleet/"
 };
 
 export const teamCategories: TeamCategory[] = [
@@ -147,6 +150,13 @@ export const teamCategories: TeamCategory[] = [
     name: "Logistics",
     members: [
       {
+        name: "Michelle C",
+        team: "Logistics",
+        role: "Co-Chair (Lead)",
+        image: TEAM_IMAGES.michelle,
+        linkedin: LinkedInLink.michelle,
+      },
+      {
         name: "Yoyo",
         team: "Logistics",
         role: "Co-Chair (Lead)",
@@ -159,13 +169,6 @@ export const teamCategories: TeamCategory[] = [
         role: "Co-Chair (Lead)",
         image: TEAM_IMAGES.rojina,
         linkedin: LinkedInLink.rojina,
-      },
-      {
-        name: "Michelle C",
-        team: "Logistics",
-        role: "Co-Chair (Lead)",
-        image: TEAM_IMAGES.michelle,
-        linkedin: LinkedInLink.michelle,
       },
     ],
   },
@@ -217,14 +220,7 @@ export const teamCategories: TeamCategory[] = [
         team: "Sponsorship",
         role: "Co-Chair (Lead)",
         image: TEAM_IMAGES.ben,
-        linkedin: "#",
-      },
-      {
-        name: "Alexandra",
-        team: "Sponsorship",
-        role: "Co-Chair",
-        image: "",
-        linkedin: "#",
+        linkedin: LinkedInLink.ben,
       },
       {
         name: "Arul",
@@ -233,6 +229,21 @@ export const teamCategories: TeamCategory[] = [
         image: TEAM_IMAGES.arul,
         linkedin: LinkedInLink.arul,
       },
+      {
+        name: "Hao",
+        team: "Sponshorship",
+        role: "Co-Chair",
+        image: TEAM_IMAGES.hao,
+        linkedin: LinkedInLink.hao
+      },
+      {
+        name: "Alexandra",
+        team: "Sponsorship",
+        role: "Co-Chair",
+        image: "",
+        linkedin: "#",
+      },
+      
     ],
   },
 ];
