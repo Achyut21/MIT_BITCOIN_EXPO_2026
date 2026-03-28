@@ -29,8 +29,8 @@ const TEAM_IMAGES = {
   thomaz: "/team/thomaz.webp",
   manish: "/team/manish.webp",
   frank: "/team/frank.webp",
-  hao: "/team/hao.webp"
-  julie: "/team/julie.webp",
+  hao: "/team/hao.webp",
+  julie: "/team/julie.webp"
 };
 
 // Linked list of team categories and their members
