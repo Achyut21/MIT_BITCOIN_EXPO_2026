@@ -1,6 +1,13 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import {
+  motion,
+  animate,
+  useMotionValue,
+  useTransform,
+  type MotionValue,
+  type Variants,
+} from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "@/components/layout/navbar";
@@ -37,6 +44,7 @@ import {
   Users2,
   Sparkles,
   TrendingUp,
+  Trophy,
 } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 import { useInView } from "motion/react";
@@ -140,6 +148,91 @@ function SectionHeader({
   );
 }
 
+// ── Odometer: single value 0 → 20000 drives all digit columns ───────────────
+
+function usePrizeSize() {
+  const [fontSize, setFontSize] = useState(34); // mobile-first default
+  useEffect(() => {
+    const update = () => setFontSize(window.innerWidth >= 640 ? 56 : 34);
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+  return fontSize;
+}
+
+function OdometerColumn({
+  mv,
+  place,
+  digitHeight,
+  digitWidth,
+}: {
+  mv: MotionValue<number>;
+  place: number;
+  digitHeight: number;
+  digitWidth: number;
+}) {
+  const y = useTransform(mv, (latest) => {
+    const digit = Math.floor(latest / place) % 10;
+    return -digit * digitHeight;
+  });
+
+  return (
+    <div
+      style={{ height: digitHeight, width: digitWidth }}
+      className="relative overflow-hidden"
+    >
+      <motion.div style={{ y }} className="absolute top-0 left-0 w-full">
+        {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+          <div
+            key={n}
+            style={{ height: digitHeight }}
+            className="flex items-center justify-center"
+          >
+            {n}
+          </div>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
+function PrizeCounter() {
+  const progress = useMotionValue(0);
+  const fontSize = usePrizeSize();
+  const digitHeight = Math.round(fontSize * 1.3);
+  const digitWidth  = Math.round(fontSize * 0.68);
+
+  useEffect(() => {
+    const t = setTimeout(() => {
+      animate(progress, 20000, {
+        duration: 2.8,
+        ease: [0.16, 1, 0.3, 1],
+      });
+    }, 400);
+    return () => clearTimeout(t);
+  }, [progress]);
+
+  return (
+    <div className="mt-6 flex items-center justify-center gap-3 sm:gap-5">
+      <Trophy className="h-9 w-9 shrink-0 text-orange-400 sm:h-12 sm:w-12" />
+      <div
+        className="flex items-center font-black text-orange-400"
+        style={{ fontSize, height: digitHeight, lineHeight: 1 }}
+      >
+        <span className="mr-1 sm:mr-2">$</span>
+        <OdometerColumn mv={progress} place={10000} digitHeight={digitHeight} digitWidth={digitWidth} />
+        <OdometerColumn mv={progress} place={1000}  digitHeight={digitHeight} digitWidth={digitWidth} />
+        <span className="mx-1 sm:mx-2">,</span>
+        <OdometerColumn mv={progress} place={100} digitHeight={digitHeight} digitWidth={digitWidth} />
+        <OdometerColumn mv={progress} place={10}  digitHeight={digitHeight} digitWidth={digitWidth} />
+        <OdometerColumn mv={progress} place={1}   digitHeight={digitHeight} digitWidth={digitWidth} />
+        <span className="ml-1">+</span>
+      </div>
+    </div>
+  );
+}
+
 function HeroSection() {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
@@ -200,6 +293,11 @@ function HeroSection() {
           Freedom for All
         </motion.p>
 
+        {/* Prize callout */}
+        <motion.div variants={itemVariants}>
+          <PrizeCounter />
+        </motion.div>
+
         <motion.p variants={itemVariants} className="text-muted mx-auto mt-6 max-w-xl">
           36 hours to learn, build, and ship the next generation of Bitcoin and blockchain
           applications. In-person at MIT Campus.
@@ -249,17 +347,24 @@ function KeyDetailsSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6"
         >
-          {keyDetails.map((detail) => (
-            <motion.div
-              key={detail.label}
-              variants={cardVariants}
-              className="bg-surface border-border rounded-xl border p-4 text-center transition-colors hover:border-orange-500/30"
-            >
-              <detail.icon className="mx-auto mb-2 h-6 w-6 text-orange-400" />
-              <p className="text-muted mb-1 text-sm">{detail.label}</p>
-              <p className="font-semibold">{detail.value}</p>
-            </motion.div>
-          ))}
+          {keyDetails.map((detail) => {
+            const isPrize = detail.label === "Prize Pool";
+            return (
+              <motion.div
+                key={detail.label}
+                variants={cardVariants}
+                className={
+                  isPrize
+                    ? "bg-surface border-orange-500/40 rounded-xl border-2 p-4 text-center"
+                    : "bg-surface border-border rounded-xl border p-4 text-center transition-colors hover:border-orange-500/30"
+                }
+              >
+                <detail.icon className="mx-auto mb-2 h-6 w-6 text-orange-400" />
+                <p className="text-muted mb-1 text-sm">{detail.label}</p>
+                <p className={isPrize ? "font-extrabold text-orange-400" : "font-semibold"}>{detail.value}</p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>
@@ -759,7 +864,7 @@ function PrizesSection() {
           </motion.div>
 
           <motion.p variants={itemVariants} className="text-muted mt-6 text-center text-sm">
-            Total prize pool amount will be announced once sponsor commitments are finalized.
+            Total prize pool: <span className="font-semibold text-orange-400">$20,000+</span> in cash — distributed across placements and the community split.
           </motion.p>
         </motion.div>
       </div>

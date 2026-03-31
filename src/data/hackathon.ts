@@ -8,7 +8,6 @@ import {
   Lightbulb,
   Sparkles,
   Palette,
-  Star,
   type LucideIcon,
 } from "lucide-react";
 
@@ -54,11 +53,11 @@ export interface EligibleDomain {
 }
 
 export const keyDetails: KeyDetail[] = [
+  { label: "Prize Pool", value: "$20,000+", icon: Trophy },
   { label: "Date", value: "April 10-12, 2026", icon: Clock },
   { label: "Duration", value: "36 Hours", icon: Rocket },
   { label: "Location", value: "MIT Campus", icon: MapPin },
   { label: "Team Size", value: "1-5 Members", icon: Users },
-  { label: "Age", value: "18+", icon: Star },
   { label: "Format", value: "In-Person Only", icon: Code },
 ];
 
@@ -210,7 +209,7 @@ export const getStartedSteps = [
   {
     step: 3,
     title: "Form Your Team",
-    description: "Work solo or find teammates in the #team-search channel.",
+    description: "Pitch ideas and form teams in person on Day 1.",
   },
   {
     step: 4,
