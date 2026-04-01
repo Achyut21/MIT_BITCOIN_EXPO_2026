@@ -62,13 +62,13 @@ export const sponsorYears: SponsorYear[] = [
         url: "https://anchorage.com",
         tier: "bronze",
       },
-      {
-        name: "Lightning Labs",
-        logo: "/2026Sponsors/Lightning Labs.webp",
-        url: "https://lightning.engineering",
-        tier: "bronze",
-        logoSize: "lg",
-      },
+      // {
+      //   name: "Lightning Labs",
+      //   logo: "/2026Sponsors/Lightning Labs.webp",
+      //   url: "https://lightning.engineering",
+      //   tier: "bronze",
+      //   logoSize: "lg",
+      // },
       {
         name: "Fidelity",
         logo: "/2026Sponsors/Fidelity.webp",
