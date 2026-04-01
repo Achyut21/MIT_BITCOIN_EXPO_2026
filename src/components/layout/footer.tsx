@@ -164,7 +164,7 @@ export function Footer() {
                 className="border-accent/30 hover:border-accent hover:bg-accent/10 text-foreground hover:text-accent"
                 asChild
               >
-                <Link href="mailto:info-mitbitcoinexpo@googlegroups.com?subject=Volunteer%20Interest">
+                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSc96j3Ptb_0sJ-dtqtNok6siQ-_kyTfVF0ZzhknSVEjHNmJAw/viewform?usp=sharing&ouid=110569308540552165860" target="_blank" rel="noopener noreferrer">
                   Volunteer
                 </Link>
               </Button>

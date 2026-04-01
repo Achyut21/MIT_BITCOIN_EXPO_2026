@@ -103,7 +103,8 @@ function SponsorLogo({ sponsor, community = false, silver = false }: { sponsor: 
           className={cn(
             "w-full object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100",
             community ? "max-h-6" : silver ? "max-h-10 sm:max-h-14" : "max-h-8 sm:max-h-10",
-            !community && sponsor.logoSize === "lg" && "scale-[1.4]"
+            !community && sponsor.logoSize === "lg" && "scale-[1.4]",
+            !community && sponsor.logoSize === "xl" && "scale-[1.8]"
           )}
           onError={() => setImgError(true)}
         />
@@ -162,7 +163,7 @@ export function HomeSponsors() {
           ))}
 
           {silver.length > 0 && (
-            <div className="w-3/4 sm:w-1/2">
+            <div className="grid grid-cols-2 gap-4">
               {silver.map((sponsor) => (
                 <SponsorLogo key={sponsor.name} sponsor={sponsor} silver />
               ))}

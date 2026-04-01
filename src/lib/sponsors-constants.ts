@@ -4,7 +4,7 @@ export type Sponsor = {
   url?: string;
   darkLogo?: boolean;
   tier?: "gold" | "silver" | "bronze" | "community";
-  logoSize?: "sm" | "md" | "lg";
+  logoSize?: "sm" | "md" | "lg" | "xl";
 };
 
 export type SponsorYear = {
@@ -49,6 +49,12 @@ export const sponsorYears: SponsorYear[] = [
         tier: "silver",
       },
       {
+        name: "CogCoin",
+        logo: "/2026Sponsors/cogcoin.webp",
+        tier: "silver",
+        logoSize: "lg",
+      },
+      {
         name: "Hydrax",
         logo: "/2026Sponsors/hydrax.webp",
         url: "https://hydrax.io",
@@ -81,6 +87,13 @@ export const sponsorYears: SponsorYear[] = [
         logo: "/2026Sponsors/allium.webp",
         url: "https://allium.so",
         tier: "community",
+      },
+      {
+        name: "Digital Currency Initiative",
+        logo: "/2026Sponsors/digital-currency-initiative.webp",
+        url: "https://dci.mit.edu",
+        tier: "bronze",
+        logoSize: "xl",
       },
     ],
   },
