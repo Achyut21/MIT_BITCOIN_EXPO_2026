@@ -89,6 +89,13 @@ export const sponsorYears: SponsorYear[] = [
         tier: "community",
       },
       {
+        name: "System76",
+        logo: "/2026Sponsors/System76.svg",
+        url: "https://system76.com",
+        tier: "community",
+        darkLogo: true,
+      },
+      {
         name: "Digital Currency Initiative",
         logo: "/2026Sponsors/digital-currency-initiative.webp",
         url: "https://dci.mit.edu",
