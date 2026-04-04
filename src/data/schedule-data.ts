@@ -97,7 +97,7 @@ export const schedule: ScheduleDay[] = [
         type: "keynote",
         title: "Fireside Chat with Hester Peirce",
         presenters: "Hester Peirce",
-        moderator: "Namnueng",
+        moderator: "Namnueng Protpagorn",
       },
       {
         id: 8,
@@ -210,7 +210,7 @@ export const schedule: ScheduleDay[] = [
         type: "panel",
         title: "The State of Crypto VC",
         presenters: "Boris Revsin, Mario Mena, Haley Huang",
-        moderator: "Cameron",
+        moderator: "Cameron Moini",
       },
       { start: "3:05 PM", end: "3:15 PM", type: "break", title: "Break" },
       {
