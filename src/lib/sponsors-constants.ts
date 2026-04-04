@@ -51,6 +51,7 @@ export const sponsorYears: SponsorYear[] = [
       {
         name: "CogCoin",
         logo: "/2026Sponsors/cogcoin.webp",
+        url: "https://cogcoin.org/",
         tier: "silver",
         logoSize: "lg",
       },
