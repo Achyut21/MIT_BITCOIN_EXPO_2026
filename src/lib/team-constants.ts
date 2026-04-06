@@ -130,13 +130,13 @@ export const teamCategories: TeamCategory[] = [
   {
     name: "Hackathon",
     members: [
-      {
-        name: "Frank",
-        team: "Hackathon",
-        role: "Co-Chair (Lead)",
-        image: TEAM_IMAGES.frank,
-        linkedin: "#",
-      },
+      // {
+      //   name: "Frank",
+      //   team: "Hackathon",
+      //   role: "Co-Chair (Lead)",
+      //   image: TEAM_IMAGES.frank,
+      //   linkedin: "#",
+      // },
       {
         name: "Achyut Katiyar",
         team: "Hackathon",
