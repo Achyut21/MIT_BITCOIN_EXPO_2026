@@ -105,6 +105,13 @@ export const sponsorYears: SponsorYear[] = [
         logoSize: "xl",
       },
       {
+        name: "Bitcoin Magazine",
+        logo: "/2026Sponsors/bitcoin-magazine.webp",
+        url: "https://bitcoinmagazine.com",
+        tier: "community",
+        logoSize: "lg",
+      },
+      {
         name: "Digital Currency Initiative",
         logo: "/2026Sponsors/digital-currency-initiative.webp",
         url: "https://dci.mit.edu",
