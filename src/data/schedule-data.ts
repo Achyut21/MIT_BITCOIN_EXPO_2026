@@ -1,5 +1,6 @@
 export type SessionType =
   | "keynote"
+  | "fireside"
   | "talk"
   | "panel"
   | "break"
@@ -79,7 +80,7 @@ export const schedule: ScheduleDay[] = [
         type: "panel",
         title: "Inside Bitcoin Core: Building and Maintaining the Network",
         presenters: "Antoine Poinsot, Furszy, Ava Chow, Cory Fields",
-        moderator: "Stacey Waleyko",
+        moderator: "Stacie Waleyko",
       },
       {
         id: 6,
@@ -182,7 +183,7 @@ export const schedule: ScheduleDay[] = [
         start: "11:45 AM",
         end: "12:25 PM",
         type: "panel",
-        title: "Post Quantum Cryptography and the Threat to Bitcoin",
+        title: "Post Quantum Cryptography and Bitcoin",
         presenters: "Ethan Heilman, Alex Pruden, Mikhail Shalaginov",
         moderator: "Clara Shikhelman",
       },
@@ -191,8 +192,8 @@ export const schedule: ScheduleDay[] = [
         id: 17,
         start: "1:25 PM",
         end: "1:55 PM",
-        type: "keynote",
-        title: "Keynote",
+        type: "fireside",
+        title: "Fireside Chat",
         presenters: "Neha Narula",
       },
       {
@@ -200,7 +201,7 @@ export const schedule: ScheduleDay[] = [
         start: "1:55 PM",
         end: "2:25 PM",
         type: "talk",
-        title: "Agentic Commerce",
+        title: "Agents Want Bitcoin: The Lightning-Powered AI Toolkit",
         presenters: "Kevin Cai",
       },
       {
@@ -209,7 +210,7 @@ export const schedule: ScheduleDay[] = [
         end: "3:05 PM",
         type: "panel",
         title: "The State of Crypto VC",
-        presenters: "Boris Revsin, Mario Mena, Haley Huang",
+        presenters: "Boris Revsin, Mario Mena, Haley Huang, Waikit Lau",
         moderator: "Cameron Moini",
       },
       { start: "3:05 PM", end: "3:15 PM", type: "break", title: "Break" },
@@ -235,7 +236,7 @@ export const schedule: ScheduleDay[] = [
         end: "4:55 PM",
         type: "talk",
         title: "Hackathon Presentations",
-        moderator: "Frank and Achyut",
+        moderator: "Achyut and Hao",
       },
       { start: "4:55 PM", end: "5:05 PM", type: "award", title: "Henoch Argaw Memorial Award" },
       { start: "5:05 PM", end: "5:15 PM", type: "logistics", title: "Closing Remarks" },

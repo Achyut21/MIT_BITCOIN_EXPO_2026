@@ -71,13 +71,7 @@ export const teamCategories: TeamCategory[] = [
         image: TEAM_IMAGES.namnueng,
         linkedin: LinkedInLink.namnueng,
       },
-      {
-        name: "Nicole Yifan Wu",
-        team: "Board",
-        role: "Co-Director",
-        image: TEAM_IMAGES.nicole,
-        linkedin: LinkedInLink.nicole,
-      },
+
     ],
   },
   {
@@ -137,6 +131,13 @@ export const teamCategories: TeamCategory[] = [
       //   image: TEAM_IMAGES.frank,
       //   linkedin: "#",
       // },
+      {
+        name: "Hao",
+        team: "Hackathon",
+        role: "Co-Chair",
+        image: TEAM_IMAGES.hao,
+        linkedin: LinkedInLink.hao,
+      },
       {
         name: "Achyut Katiyar",
         team: "Hackathon",
@@ -229,21 +230,8 @@ export const teamCategories: TeamCategory[] = [
         image: TEAM_IMAGES.arul,
         linkedin: LinkedInLink.arul,
       },
-      {
-        name: "Hao",
-        team: "Sponshorship",
-        role: "Co-Chair",
-        image: TEAM_IMAGES.hao,
-        linkedin: LinkedInLink.hao
-      },
-      {
-        name: "Alexandra",
-        team: "Sponsorship",
-        role: "Co-Chair",
-        image: "",
-        linkedin: "#",
-      },
-      
+
+
     ],
   },
 ];

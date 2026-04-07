@@ -6,6 +6,7 @@ import type { Session, SessionType } from "@/data/schedule-data";
 
 const TYPE_CONFIG: Record<SessionType, { label: string; className: string }> = {
   keynote: { label: "Keynote", className: "bg-[#C0FF70]/15 text-[#C0FF70] border-[#C0FF70]/30" },
+  fireside: { label: "Fireside", className: "bg-[#C0FF70]/10 text-[#C0FF70] border-[#C0FF70]/20" },
   talk: { label: "Talk", className: "bg-[#78716C]/15 text-[#FAFAF9] border-[#78716C]/30" },
   panel: { label: "Panel", className: "bg-sky-500/15 text-sky-300 border-sky-500/30" },
   break: { label: "Break", className: "" },
@@ -197,7 +198,7 @@ export function Schedule({ hideHeader = false }: { hideHeader?: boolean }) {
         {/* Legend */}
         <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2">
           <span className="text-xs text-[#78716C]">Legend:</span>
-          {(["keynote", "talk", "panel", "workshop", "award"] as SessionType[]).map((t) => (
+          {(["keynote", "fireside", "talk", "panel", "workshop", "award"] as SessionType[]).map((t) => (
             <SessionBadge key={t} type={t} />
           ))}
         </div>
