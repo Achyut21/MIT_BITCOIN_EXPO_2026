@@ -104,7 +104,9 @@ function SponsorLogo({ sponsor, community = false, silver = false }: { sponsor: 
             "w-full object-contain opacity-80 transition-opacity duration-300 group-hover:opacity-100",
             community ? "max-h-6" : silver ? "max-h-10 sm:max-h-14" : "max-h-8 sm:max-h-10",
             !community && sponsor.logoSize === "lg" && "scale-[1.4]",
-            !community && sponsor.logoSize === "xl" && "scale-[1.8]"
+            !community && sponsor.logoSize === "xl" && "scale-[1.8]",
+            community && sponsor.logoSize === "lg" && "scale-[1.4]",
+            community && sponsor.logoSize === "xl" && "scale-[2.4]"
           )}
           onError={() => setImgError(true)}
         />

@@ -163,7 +163,8 @@ function SponsorLogo({ sponsor, index }: { sponsor: Sponsor; index: number }) {
             tier === "bronze" && sponsor.logoSize === "lg" && "scale-[1.4]",
             tier === "bronze" && sponsor.logoSize === "xl" && "scale-[1.8]",
             tier === "community" && "max-h-6 sm:max-h-8",
-            tier === "community" && sponsor.logoSize === "lg" && "scale-[1.4]"
+            tier === "community" && sponsor.logoSize === "lg" && "scale-[1.4]",
+            tier === "community" && sponsor.logoSize === "xl" && "scale-[2.4]"
           )}
           onError={() => setImgError(true)}
         />

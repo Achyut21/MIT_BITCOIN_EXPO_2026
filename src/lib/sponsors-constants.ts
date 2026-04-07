@@ -97,6 +97,14 @@ export const sponsorYears: SponsorYear[] = [
         darkLogo: true,
       },
       {
+        name: "MIT iHQ",
+        logo: "/2026Sponsors/mit-ihq.webp",
+        url: "https://ihq.mit.edu",
+        tier: "community",
+        darkLogo: true,
+        logoSize: "xl",
+      },
+      {
         name: "Digital Currency Initiative",
         logo: "/2026Sponsors/digital-currency-initiative.webp",
         url: "https://dci.mit.edu",
