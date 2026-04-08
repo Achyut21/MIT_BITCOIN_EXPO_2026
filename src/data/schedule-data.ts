@@ -144,6 +144,14 @@ export const schedule: ScheduleDay[] = [
         moderator: "Achyut Katiyar",
       },
       { start: "5:40 PM", end: "5:45 PM", type: "logistics", title: "Closing Remarks" },
+      // Additional programming
+      {
+        start: "2:30 PM",
+        end: "4:30 PM",
+        type: "workshop",
+        title: "DCI Global Workshop",
+        additionalProgramming: true,
+      },
     ],
   },
   {
