@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/footer";
 import { Hero } from "@/components/sections/hero";
 import { ArticleCard } from "@/components/sections/article-card";
 import { HomeBlogPreview } from "@/components/sections/home-blog-preview";
+import { HomeLivestreamPreview } from "@/components/sections/home-livestream-preview";
 import { SpeakerStrip } from "@/components/sections/speaker-strip";
 import { Schedule } from "@/components/sections/schedule";
 import { HomeSponsors } from "@/components/sections/home-sponsors";
@@ -81,6 +82,7 @@ export default function Home() {
       <JsonLd data={orgJsonLd} />
       <Navbar />
       <Hero />
+      <HomeLivestreamPreview />
       <SpeakerStrip />
       <Schedule />
       <HomeSponsors />
