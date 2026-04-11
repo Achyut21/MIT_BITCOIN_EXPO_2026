@@ -6,14 +6,7 @@ import { motion } from "motion/react";
 const LIVE_START = new Date("2026-04-11T08:00:00-04:00");
 
 function useIsLive() {
-  const [isLive, setIsLive] = useState(false);
-
-  useEffect(() => {
-    const check = () => setIsLive(new Date() >= LIVE_START);
-    check();
-    const interval = setInterval(check, 30_000);
-    return () => clearInterval(interval);
-  }, []);
+  const [isLive] = useState(true);
 
   return isLive;
 }
