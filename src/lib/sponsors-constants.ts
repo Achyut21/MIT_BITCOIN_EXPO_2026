@@ -112,6 +112,13 @@ export const sponsorYears: SponsorYear[] = [
         logoSize: "lg",
       },
       {
+        name: "Char Network",
+        logo: "/2026Sponsors/char-network.webp",
+        url: "https://char.network",
+        tier: "bronze",
+        logoSize: "lg",
+      },
+      {
         name: "Digital Currency Initiative",
         logo: "/2026Sponsors/digital-currency-initiative.webp",
         url: "https://dci.mit.edu",
