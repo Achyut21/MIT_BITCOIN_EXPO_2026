@@ -79,7 +79,7 @@ function LiveView() {
         style={{ aspectRatio: "16/9" }}>
         <iframe
           title="MIT Bitcoin Expo 2026 Livestream"
-          src="https://player.vimeo.com/video/1171840410?h=5cb9ab7df8&autoplay=1&color=C0FF70"
+          src="https://vimeo.com/event/5850046/embed"
           className="absolute inset-0 h-full w-full"
           frameBorder="0"
           referrerPolicy="strict-origin-when-cross-origin"
