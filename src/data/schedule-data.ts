@@ -203,6 +203,7 @@ export const schedule: ScheduleDay[] = [
         type: "fireside",
         title: "Fireside Chat",
         presenters: "Neha Narula",
+        moderator: "Frank Corva",
       },
       {
         id: 18,
