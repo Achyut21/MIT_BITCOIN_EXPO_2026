@@ -193,6 +193,12 @@ src/
 
 ## License
 
-The source code is licensed under the [MIT License](./LICENSE).
+Copyright (c) 2026 Achyut Katiyar and the MIT Bitcoin Club. All rights reserved.
 
-> **Note:** The MIT Bitcoin Expo name, logo, mascot, visual assets, speaker/team photos, and branding are **not** included under this license and remain the property of MIT Bitcoin Expo. This license applies to the website source code only.
+This source code is made publicly visible for transparency and portfolio purposes only. No permission is granted to copy, modify, distribute, or use this code — in whole or in part — for any purpose without prior explicit written permission from **both** Achyut Katiyar and the MIT Bitcoin Club.
+
+To request permission, contact:
+- Achyut Katiyar
+- MIT Bitcoin Club — mitbitcoinhackathon@gmail.com
+
+See [`LICENSE`](./LICENSE) for full terms.
