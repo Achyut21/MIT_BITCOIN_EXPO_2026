@@ -857,8 +857,7 @@ function PrizesSection() {
           >
             <h4 className="mb-3 font-semibold text-orange-400">How the Community Split Works</h4>
             <p className="text-muted text-sm">
-              The 70% community pool is distributed among all qualifying submissions (above bottom
-              5%) based on ranked or tiered scoring. This means even if you don&apos;t place in the
+              The 70% community pool is distributed among all qualifying submissions based on ranked or tiered scoring. This means even if you don&apos;t place in the
               top 3, your hard work can still be rewarded!
             </p>
           </motion.div>
