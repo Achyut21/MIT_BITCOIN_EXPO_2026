@@ -170,7 +170,7 @@ export const faqItems: FAQItem[] = [
   {
     question: "How does the community prize split work?",
     answer:
-      "70% of the prize pool is distributed among all qualifying submissions (those above the bottom 5%) based on ranked or tiered scoring. This means your hard work is rewarded even if you don't place in the top 3.",
+      "70% of the prize pool is distributed among all qualifying submissions based on ranked or tiered scoring. This means your hard work is rewarded even if you don't place in the top 3.",
   },
   {
     question: "Can I start working on my project before the hackathon?",
